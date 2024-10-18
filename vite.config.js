@@ -7,4 +7,10 @@ export default defineConfig({
   server: {
     port: 3000,
   },
+  // absolute path import
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });

@@ -1,21 +1,21 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./index.css";
-
-import App from "./App.jsx";
+import { ToastContainer } from "react-toastify";
+import PrivateRoutes from "./helpers/PrivateRoutes.jsx";
 import Login from "./pages/login/login.jsx";
 import Register from "./pages/register/register.jsx";
-import Logout from "./pages/logout/logout.jsx";
+import EmailVerificationPage from "./components/auth/verification/EmailVerificationPage.jsx";
+import Dashboard from "./pages/dashboard/dashboard.jsx";
+import Home from "./pages/dashboard/home.jsx";
+import Members from "./pages/dashboard/members.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import "./index.css";
 
 const router = createBrowserRouter([
+  // Public routes
   {
     path: "/",
-    element: <App />,
-  },
-
-  {
-    path: "/login",
     element: <Login />,
   },
 
@@ -25,13 +25,30 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/logout",
-    element: <Logout />,
+    path: "/verification",
+    element: <EmailVerificationPage />,
+  },
+
+  // Private routes
+  {
+    path: "/dashboard/home",
+    element: (
+      <PrivateRoutes>
+        <Dashboard />
+      </PrivateRoutes>
+    ),
+    children: [
+      { index: true, element: <Home /> }, // Home sebagai default di /dashboard
+      { path: "members", element: <Members /> }, // Members di /dashboard/members
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <main className="font-dm-sans">
+      <RouterProvider router={router} />
+      <ToastContainer />
+    </main>
   </React.StrictMode>
 );
