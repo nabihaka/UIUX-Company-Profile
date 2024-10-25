@@ -11,7 +11,7 @@ const KeepLoggedIn = () => {
       />
       <label
         htmlFor="keepLoggedIn"
-        className="text-custom-blue font-medium text-6 tracking-negative-2 hover:cursor-pointer"
+        className="text-custom-blue font-medium text-base tracking-negative-2 hover:cursor-pointer"
       >
         Keep me logged in
       </label>

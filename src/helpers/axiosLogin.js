@@ -14,6 +14,6 @@ export const login = async (formData) => {
       localStorage.setItem("token", tokenRes);
 
       // Jika berhasil, arahkan ke dashboard
-      window.location.href = "/dashboard/home";
+      window.location.href = "/dashboard/main";
     });
 };

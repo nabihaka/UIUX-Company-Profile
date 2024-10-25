@@ -1,13 +1,11 @@
+import * as React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
-import axios from "axios";
-import axiosHelper from "../../helpers/axiosInterceptor";
-// import Sidebar from "../../components/Sidebar";
+import axiosHelper from "@/helpers/axiosInterceptor";
 import Sidebar from "@/components/dashboard/Sidebar.jsx";
-// import Header from "../../components/Header";
 import Header from "@/components/dashboard/Header.jsx";
 
-function Dashboard() {
+const DashboardLayout = () => {
   const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -47,13 +45,13 @@ function Dashboard() {
     <div>
       <div className="flex">
         <Sidebar />
-        <div className="w-[1610px] ml-16 md:ml-56">
+        <div className="">
           <Header />
           <Outlet />
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default Dashboard;
+export default DashboardLayout;

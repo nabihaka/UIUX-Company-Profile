@@ -13,7 +13,7 @@ const Sidebar = () => {
   };
 
   const SIDEBAR_LINKS = [
-    { id: 1, path: "/dashboard/home", name: "Home", icon: LuHome },
+    { id: 1, path: "/dashboard/main", name: "Home", icon: LuHome },
     { id: 2, path: "/dashboard/members", name: "Members", icon: TbUsers },
     { id: 3, path: "/messages", name: "Messages", icon: LuMessageSquare },
     { id: 4, path: "/projects", name: "Projects", icon: FaSuitcase },
@@ -36,7 +36,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-16 md:w-56 fixed left-0 top-0 z-10 h-screen border-r pt-8 px-4 bg-white">
+    <div className="w-16 md:w-56 h-[1152px] fixed left-0 top-0 z-10 border-r pt-8 px-4 bg-white">
       <div>
         <h1 className="font-bold text-2xl">ExcloLab</h1>
       </div>

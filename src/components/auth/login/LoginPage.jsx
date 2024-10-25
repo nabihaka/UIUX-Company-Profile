@@ -24,6 +24,7 @@ const LoginPage = () => {
 
     login(formData);
   };
+
   return (
     <div className="bg-white min-h-screen flex flex-col justify-center items-center py-9">
       <div className="bg-white px-6 py-6 w-[458px] border-2 rounded-2xl">
@@ -34,7 +35,9 @@ const LoginPage = () => {
           />
           <GoogleButton />
           <div className="w-full flex flex-row justify-center items-center my-[29px]">
-            <span className="text-custom-gray">or</span>
+            <span className="text-custom-gray text-base tracking-negative-2">
+              or
+            </span>
           </div>
           {/* <--------------------------FORM SIGN IN START---------------------------> */}
           <div className="w-full">

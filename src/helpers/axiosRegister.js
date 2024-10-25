@@ -12,7 +12,7 @@ export const register = async (formData) => {
       },
     })
     .then(() => {
-      // Jika berhasil, arahkan ke login
-      window.location.href = "/";
+      // Jika berhasil, arahkan ke email verification
+      window.location.href = "/verification";
     });
 };

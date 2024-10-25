@@ -15,8 +15,6 @@ import axios from "axios";
 const RegisterPage = () => {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
-  const [isOpenProvince, setIsOpenProvince] = useState(false);
-  const [isOpenCity, setIsOpenCity] = useState(false);
 
   const [data, setData] = useState({
     name: "",
@@ -72,6 +70,9 @@ const RegisterPage = () => {
     handleFetchCities(provinceId);
   };
 
+  const [isOpenProvince, setIsOpenProvince] = useState(false);
+  const [isOpenCity, setIsOpenCity] = useState(false);
+
   const toggleDropDownProvince = () => {
     setIsOpenProvince(!isOpenProvince);
   };
@@ -90,7 +91,9 @@ const RegisterPage = () => {
           />
           <GoogleButton />
           <div className="w-full flex flex-row justify-center items-center my-[29px]">
-            <span className="text-custom-gray">or</span>
+            <span className="text-custom-gray text-base tracking-negative-2">
+              or
+            </span>
           </div>
           {/* <--------------------------FORM SIGN UP START---------------------------> */}
           <div className="w-full">

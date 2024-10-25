@@ -6,15 +6,11 @@ function Login() {
     //check token
     if (localStorage.getItem("token")) {
       //redirect page dashboard
-      window.location.href = "/dashboard/home";
+      window.location.href = "/dashboard/main";
     }
   }, []);
 
-  return (
-    <div>
-      <LoginPage />
-    </div>
-  );
+  return <LoginPage />;
 }
 
 export default Login;

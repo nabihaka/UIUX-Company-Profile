@@ -13,7 +13,7 @@ const PasswordInput = ({ forId, title, onChange }) => {
       <div className="flex flex-col">
         <label
           htmlFor={forId}
-          className="text-custom-blue font-medium text-3.5 tracking-negative-2"
+          className="text-custom-blue font-medium text-base tracking-negative-2"
         >
           {title}
           <span className="text-custom-purple">*</span>
@@ -21,7 +21,7 @@ const PasswordInput = ({ forId, title, onChange }) => {
         <input
           type={visible ? "text" : "password"}
           id={forId}
-          className="bg-white placeholder-custom-gray border border-custom-outline-gray pl-6 pr-10 py-[18px] rounded-2xl mt-[13px] mb-[14px] focus:bg-white focus:outline-none focus:ring-1 focus:ring-custom-purple"
+          className="bg-white placeholder-custom-gray font-normal text-base tracking-negative-2 border border-custom-outline-gray pl-6 pr-10 py-[18px] rounded-2xl mt-[13px] mb-[14px] focus:bg-white focus:outline-none focus:ring-1 focus:ring-custom-purple"
           placeholder="Min. 3 characters"
           onChange={onChange}
         />

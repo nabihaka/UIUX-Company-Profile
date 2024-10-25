@@ -9,7 +9,7 @@ function Register() {
     //check token
     if (localStorage.getItem("token")) {
       //redirect page dashboard
-      navigate("/dashboard/home");
+      navigate("/dashboard/main");
     }
   }, []);
 

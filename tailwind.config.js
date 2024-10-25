@@ -11,6 +11,9 @@ export default {
         "custom-purple": "#4318FF",
         "custom-light": "#F4F7FE",
         "custom-gray": "#A3AED0",
+        "custom-silver": "#707EAE",
+        "custom-8F9BBA": "#8F9BBA",
+        "custom-05CD99": "#05CD99",
         "custom-outline-gray": "#E0E5F2",
       },
       letterSpacing: {
