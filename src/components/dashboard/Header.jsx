@@ -97,7 +97,7 @@ const Header = () => {
   };
 
   return (
-    <div className="w-[1610px] bg-custom-light ml-72 pl-6 pt-12 pb-5 pr-6">
+    <div className="w-screen bg-custom-light ml-[18.125rem] pl-[1.25rem] pt-12 pb-5 pr-[1.25rem]">
       <div className="w-full flex flex-col justify-start">
         <p className="font-medium text-custom-silver text-base">{pathPage()}</p>
         <div className="w-full flex justify-between items-center">

@@ -3,8 +3,11 @@ import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import PrivateRoutes from "./helpers/PrivateRoutes.jsx";
+import Landing from "@/pages/landing/Landing.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
+import ForgotPassword from "@/pages/auth/ForgotPassword.jsx";
+import NewPassword from "@/pages/auth/NewPassword.jsx";
 // import EmailVerificationPage from "@/components/auth/verification/EmailVerificationPage.jsx";
 import EmailVerification from "@/pages/auth/EmailVerification.jsx";
 import SuccessfulVerification from "@/pages/auth/SuccessfulVerification.jsx";
@@ -24,11 +27,16 @@ const router = createBrowserRouter([
   // Public routes
   {
     path: "/",
+    element: <Landing />,
+  },
+
+  {
+    path: "/login-admin",
     element: <Login />,
   },
 
   {
-    path: "/register",
+    path: "/register-admin",
     element: <Register />,
   },
 
@@ -40,6 +48,16 @@ const router = createBrowserRouter([
   {
     path: "/successful-verification",
     element: <SuccessfulVerification />,
+  },
+
+  {
+    path: "/forgot-password",
+    element: <ForgotPassword />,
+  },
+
+  {
+    path: "/create-new-password",
+    element: <NewPassword />,
   },
 
   // Private routes

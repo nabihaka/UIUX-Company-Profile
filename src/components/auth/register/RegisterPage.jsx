@@ -73,24 +73,16 @@ const RegisterPage = () => {
   const [isOpenProvince, setIsOpenProvince] = useState(false);
   const [isOpenCity, setIsOpenCity] = useState(false);
 
-  const toggleDropDownProvince = () => {
-    setIsOpenProvince(!isOpenProvince);
-  };
-
-  const toggleDropDownCity = () => {
-    setIsOpenCity(!isOpenCity);
-  };
-
   return (
     <div className="bg-white min-h-screen flex flex-col justify-center items-center py-9">
-      <div className="bg-white px-6 py-6 w-[458px] border-2 rounded-2xl">
+      <div className="bg-white px-6 py-6 w-[30.3125rem] border-2 rounded-2xl">
         <div className="w-full">
           <HeaderForm
             title="Sign Up"
             description="Enter your email and password to sign up!"
           />
           <GoogleButton />
-          <div className="w-full flex flex-row justify-center items-center my-[29px]">
+          <div className="w-full flex flex-row justify-center items-center my-[1.8125rem]">
             <span className="text-custom-gray text-base tracking-negative-2">
               or
             </span>
@@ -112,14 +104,12 @@ const RegisterPage = () => {
               title="Province"
               forId="province"
               onChange={handleSelectProvince}
-              onClick={toggleDropDownProvince}
               placeHolder="Select a province"
               option={provinces.map((province) => (
                 <option key={province.id} value={province.id}>
                   {province.name}
                 </option>
               ))}
-              toggleAction={isOpenProvince}
             />
             {/* <--------------------------CITY---------------------------> */}
             <ProvinceCityInput
@@ -128,14 +118,12 @@ const RegisterPage = () => {
               onChange={(e) =>
                 setData((prev) => ({ ...prev, city: e.target.value }))
               }
-              onCLick={toggleDropDownCity}
               placeHolder="Select a city"
               option={cities?.data?.map((city) => (
                 <option key={city.id} value={city.id}>
                   {city.name}
                 </option>
               ))}
-              toggleAction={isOpenCity}
             />
             {/* <--------------------------STREET---------------------------> */}
             <GeneralInput
@@ -194,7 +182,7 @@ const RegisterPage = () => {
             <ChangeAuth
               question="Already have an account?"
               action="Sign in"
-              link="/"
+              link="/login-admin"
             />
           </div>
         </div>

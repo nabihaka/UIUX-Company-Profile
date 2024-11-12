@@ -20,7 +20,7 @@ function Dashboard() {
 
   useEffect(() => {
     if (!token) {
-      navigate("/");
+      navigate("/login-admin");
     }
     fetchData();
   }, []);

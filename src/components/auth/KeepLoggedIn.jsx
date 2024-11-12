@@ -2,12 +2,12 @@ import * as React from "react";
 
 const KeepLoggedIn = () => {
   return (
-    <div className="flex justify-start items-center mb-[14px]">
+    <div className="flex justify-start items-center mb-3.5 space-x-2">
       <input
         type="checkbox"
         id="keepLoggedIn"
         name="keepLoggedIn"
-        className="accent-custom-purple h-[18px] w-[18px] font-normal border px-6 py-[18px] rounded-2xl mt-[13px] mb-[14px] mr-[11px]"
+        className="accent-custom-purple h-[1.125rem] w-[1.125rem] font-normal border rounded-2xl mt-[0.8125rem] mb-3.5 "
       />
       <label
         htmlFor="keepLoggedIn"

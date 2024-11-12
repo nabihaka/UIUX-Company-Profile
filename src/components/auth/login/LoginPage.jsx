@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GoogleButton from "@/components/auth/ButtonGoogle.jsx";
 import HorizonLogo from "@/components/auth/HorizonLogo.jsx";
@@ -27,14 +28,14 @@ const LoginPage = () => {
 
   return (
     <div className="bg-white min-h-screen flex flex-col justify-center items-center py-9">
-      <div className="bg-white px-6 py-6 w-[458px] border-2 rounded-2xl">
+      <div className="bg-white px-6 py-6 w-[30.3125rem] border-2 rounded-2xl">
         <div className="w-full">
           <HeaderForm
             title="Sign In"
             description="Enter your email and password to sign in!"
           />
           <GoogleButton />
-          <div className="w-full flex flex-row justify-center items-center my-[29px]">
+          <div className="w-full flex flex-row justify-center items-center my-[1.8125rem]">
             <span className="text-custom-gray text-base tracking-negative-2">
               or
             </span>
@@ -60,14 +61,22 @@ const LoginPage = () => {
               }
             />
             {/* <--------------------------KEEP ME LOGGED IN---------------------------> */}
-            <KeepLoggedIn />
+            <div className="w-full flex justify-between items-center">
+              <KeepLoggedIn />
+              <Link
+                to="/forgot-password"
+                className="font-medium text-base text-custom-purple tracking-negative-2 mb-3.5 hover:text-custom-blue hover:underline cursor-pointer"
+              >
+                Forgot password?
+              </Link>
+            </div>
             {/* <--------------------------SUBMIT BUTTON---------------------------> */}
             <ButtonSubmit title="Sign In" handleSubmit={handleSubmit} />
             {/* <--------------------------CHANGE AUTH---------------------------> */}
             <ChangeAuth
               question="Not registered yet?"
               action="Create an account"
-              link="/register"
+              link="/register-admin"
             />
           </div>
         </div>

@@ -14,9 +14,9 @@ const EmailVerificationPage = () => {
           </div>
           <img src={DirectboxIcon} />
           <div className="w-full flex flex-row justify-start items-center">
-            <p className="text-base text-custom-gray font-normal tracking-negative-2">
-              To start your account registration, please confirm your email
-              address to activate your account
+            <p className="text-base text-custom-gray font-normal tracking-negative-2 text-justify">
+              To start your account registration, please check your email inbox
+              and confirm your email address to activate your account
             </p>
           </div>
           <img src={HorizonLogo} />

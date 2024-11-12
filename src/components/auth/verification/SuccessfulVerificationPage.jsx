@@ -1,5 +1,4 @@
 import * as React from "react";
-import DirectboxIcon from "@/assets/directbox_receive.svg";
 import HorizonLogo from "@/assets/horizon_logo.svg";
 import { FaCircleCheck } from "react-icons/fa6";
 

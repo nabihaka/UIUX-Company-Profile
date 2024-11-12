@@ -60,7 +60,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-16 md:w-[290px] fixed bg-white left-0 top-0 z-10 h-[1152px]">
+    <div className="w-[18.125rem] fixed bg-white left-0 top-0 z-10 min-h-screen">
       <div className="flex justify-center items-center py-14 border-b border-custom-light">
         <img src={HorizonLogo} />
       </div>
@@ -72,7 +72,7 @@ const Sidebar = () => {
               to={link.path}
               key={index}
               onClick={() => handleLinkClick(index)}
-              className="flex justify-between items-center ml-[10px] pl-[23px] rounded-l-xl hover:bg-custom-light transition duration-200 ease-in-out"
+              className="flex justify-between items-center ml-[0.625rem] pl-[1.4375rem] rounded-l-xl hover:bg-custom-light transition duration-200 ease-in-out"
             >
               <div className="flex space-x-3 justify-start items-center">
                 <img src={activeLink === index ? link.active : link.inactive} />
