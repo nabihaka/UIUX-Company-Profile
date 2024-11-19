@@ -20,6 +20,7 @@ import NftMarketplace from "@/pages/dashboard/NftMarketplace.jsx";
 import Tables from "@/pages/dashboard/Tables.jsx";
 import Kanban from "@/pages/dashboard/Kanban.jsx";
 import Profile from "@/pages/dashboard/Profile.jsx";
+import Client from "@/pages/dashboard/Client.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import "./index.css";
 
@@ -72,8 +73,9 @@ const router = createBrowserRouter([
       { index: true, path: "main", element: <Main /> }, // Home sebagai default di /dashboard
       { path: "nftmarketplace", element: <NftMarketplace /> }, // Members di /dashboard/members
       { path: "tables", element: <Tables /> }, // Members di /dashboard/members
-      { path: "Kanban", element: <Kanban /> }, // Members di /dashboard/members
-      { path: "Profile", element: <Profile /> }, // Members di /dashboard/members
+      { path: "kanban", element: <Kanban /> }, // Members di /dashboard/members
+      { path: "profile", element: <Profile /> }, // Members di /dashboard/members
+      { path: "client", element: <Client /> }, // Members di /dashboard/members
     ],
   },
 ]);

@@ -7,11 +7,13 @@ import ActiveNftIcon from "@/assets/active_nft_icon.svg";
 import ActiveTablesIcon from "@/assets/active_tables_icon.svg";
 import ActiveKanbanIcon from "@/assets/active_kanban_icon.svg";
 import ActiveProfileIcon from "@/assets/active_profile_icon.svg";
+import ActiveClientIcon from "@/assets/active_client_icon.svg";
 import InactiveHomeIcon from "@/assets/inactive_home_icon.svg";
 import InactiveNftIcon from "@/assets/inactive_nft_icon.svg";
 import InactiveTablesIcon from "@/assets/inactive_tables_icon.svg";
 import InactiveKanbanIcon from "@/assets/inactive_kanban_icon.svg";
 import InactiveProfileIcon from "@/assets/inactive_profile_icon.svg";
+import InactiveClientIcon from "@/assets/inactive_client_icon.svg";
 import { TiHome } from "react-icons/ti";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
@@ -56,6 +58,13 @@ const Sidebar = () => {
       name: "Profile",
       active: ActiveProfileIcon,
       inactive: InactiveProfileIcon,
+    },
+    {
+      id: 6,
+      path: "/dashboard/client",
+      name: "Client",
+      active: ActiveClientIcon,
+      inactive: InactiveClientIcon,
     },
   ];
 

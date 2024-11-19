@@ -20,6 +20,8 @@ const Header = () => {
         return "Pages / Kanban";
       case "/dashboard/profile":
         return "Pages / Profile";
+      case "/dashboard/client":
+        return "Pages / Client";
       default:
         return "Default Title";
     }
@@ -37,6 +39,8 @@ const Header = () => {
         return "Kanban";
       case "/dashboard/profile":
         return "Profile";
+      case "/dashboard/client":
+        return "Client";
       default:
         return "Default Title";
     }
@@ -49,7 +53,7 @@ const Header = () => {
           <div className="flex space-x-[10px]">
             <div className="relative">
               <input
-                type="text"
+                type="search"
                 placeholder="Search"
                 className="w-[223px] bg-custom-light pl-12 pr-6 py-[10px] placeholder-custom-8F9BBA text-custom-blue font-normal text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-custom-blue"
               ></input>
@@ -77,7 +81,7 @@ const Header = () => {
         <div className="flex justify-between items-center w-[422px] h-[61px] p-[10px] bg-white rounded-full">
           <div className="relative">
             <input
-              type="text"
+              type="search"
               placeholder="Search"
               className="w-[214px] bg-custom-light pl-12 pr-6 py-[10px] placeholder-custom-8F9BBA text-custom-blue font-normal text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-custom-blue"
             ></input>

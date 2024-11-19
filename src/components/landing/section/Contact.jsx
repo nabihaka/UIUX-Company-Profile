@@ -1,0 +1,237 @@
+import * as React from "react";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import Loading from "@/assets/loading.svg";
+import ContactImg from "@/assets/contact_image.svg";
+import { formLanding } from "@/helpers/axiosFormLanding.js";
+
+const ContactSection = () => {
+  const [isAppointmentChecked, setIsAppointmentChecked] = useState(false);
+  const [appointmentDateTime, setAppointmentDateTime] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const [data, setData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    dateTime: "",
+    message: "",
+  });
+
+  const formatDateTime = (datetime) => {
+    const date = new Date(datetime);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    const hours = String(date.getHours()).padStart(2, "0");
+    const minutes = String(date.getMinutes()).padStart(2, "0");
+    const seconds = String(date.getSeconds()).padStart(2, "0");
+
+    return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+  };
+
+  const handleDateTimeChange = (e) => {
+    const rawValue = e.target.value;
+    const formattedValue = formatDateTime(rawValue);
+    setData((prev) => ({ ...prev, dateTime: formattedValue }));
+    setAppointmentDateTime(rawValue);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (isAppointmentChecked && !appointmentDateTime) {
+      toast.error("Please select a date and time for the appointment.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", data.name);
+    formData.append("phone_number", data.phone);
+    formData.append("email", data.email);
+    formData.append("date", data.dateTime);
+    formData.append("message", data.message);
+
+    // formLanding(formData);
+
+    const isSuccess = await formLanding(formData, setLoading);
+
+    if (isSuccess) {
+      setData({
+        name: "",
+        phone: "",
+        email: "",
+        dateTime: "",
+        message: "",
+      });
+      setAppointmentDateTime("");
+      setIsAppointmentChecked(false);
+    }
+  };
+
+  // Fungsi untuk menangani perubahan checkbox
+  const handleCheckboxChange = (e) => {
+    const isChecked = e.target.checked;
+    setIsAppointmentChecked(isChecked);
+
+    if (!isChecked) {
+      setAppointmentDateTime("");
+      setData((prev) => ({ ...prev, dateTime: "" }));
+    }
+  };
+
+  return (
+    <section id="contact" className="pt-[120px]">
+      <div className="flex justify-between items-center xl:mr-[54px] xl:ml-0 xl2:mr-[94px] xl2:ml-0 xl3:mr-[134px] xl3:ml-0 2xl:mr-[182px] 2xl:ml-0 mb-[7.5rem]">
+        <img src={ContactImg} className="h-[680px] rounded-r-3xl" />
+        <div className="w-full flex flex-col pl-12">
+          <div className="flex flex-col items-start mb-9">
+            <h2 className="font-bold text-[2.5rem] text-custom-blue">
+              Get in touch
+            </h2>
+            <p className="font-light text-base text-custom-A7ABB6">
+              Have an enquiry? Fill out the form to contact our team
+            </p>
+          </div>
+          <div className="flex flex-col space-y-6">
+            <div className="flex items-center space-x-3.5">
+              <div className="w-full flex flex-col space-y-[0.8125rem]">
+                <label
+                  htmlFor="name"
+                  className="w-max text-custom-blue font-medium text-base"
+                >
+                  Name<span className="text-custom-purple">*</span>
+                </label>
+                <input
+                  id="name"
+                  type="text"
+                  value={data.name}
+                  placeholder="Your name"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, name: e.target.value }))
+                  }
+                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                />
+              </div>
+              <div className="w-full flex flex-col space-y-[0.8125rem]">
+                <label
+                  htmlFor="phone"
+                  className="w-max text-custom-blue font-medium text-base"
+                >
+                  Phone number<span className="text-custom-purple">*</span>
+                </label>
+                <input
+                  id="phone"
+                  type="text"
+                  value={data.phone}
+                  placeholder="089015151999"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, phone: e.target.value }))
+                  }
+                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                />
+              </div>
+            </div>
+            <div className="flex space-x-3.5 items-end">
+              <div className="w-full flex flex-col space-y-[0.8125rem]">
+                <label
+                  htmlFor="email"
+                  className="w-max text-custom-blue font-medium text-base"
+                >
+                  Email<span className="text-custom-purple">*</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={data.email}
+                  placeholder="simple@example.com"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, email: e.target.value }))
+                  }
+                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                />
+              </div>
+              <div className="w-full flex flex-col space-y-[0.8125rem]">
+                <div className="flex items-center space-x-2">
+                  <input
+                    id="appoinment"
+                    type="checkbox"
+                    checked={isAppointmentChecked}
+                    onChange={handleCheckboxChange}
+                    className="accent-custom-purple h-[1.125rem] w-[1.125rem] cursor-pointer"
+                  />
+                  <label
+                    htmlFor="appoinment"
+                    className="text-custom-blue font-medium text-base cursor-pointer"
+                  >
+                    Make an appoinment?
+                  </label>
+                </div>
+                <div className="w-full flex flex-col space-y-[0.8125rem]">
+                  <label
+                    htmlFor="datetime"
+                    className={`w-max text-custom-blue font-medium text-base transition duration-500 ease-out ${
+                      !isAppointmentChecked
+                        ? "cursor-not-allowed opacity-50"
+                        : ""
+                    }`}
+                  >
+                    Date and time
+                    <span className="text-custom-purple">*</span>
+                  </label>
+                  <input
+                    id="datetime"
+                    type="datetime-local"
+                    disabled={!isAppointmentChecked}
+                    required={isAppointmentChecked}
+                    value={appointmentDateTime}
+                    onChange={handleDateTimeChange}
+                    className={`bg-transparent font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple transition duration-500 ease-out ${
+                      !isAppointmentChecked
+                        ? "cursor-not-allowed opacity-50"
+                        : ""
+                    }`}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="flex flex-col space-y-[0.8125rem]">
+              <label
+                htmlFor="message"
+                className="w-max text-custom-blue font-medium text-base"
+              >
+                Message<span className="text-custom-purple">*</span>
+              </label>
+              <textarea
+                id="message"
+                type="text"
+                value={data.message}
+                placeholder="Your question/message"
+                onChange={(e) =>
+                  setData((prev) => ({ ...prev, message: e.target.value }))
+                }
+                className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 h-28 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+              />
+            </div>
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="bg-custom-purple w-40 py-3 flex justify-center items-center font-medium text-base text-white rounded-full hover:bg-custom-blue transition duration-200 ease-in-out shadow-xl"
+              style={{
+                boxShadow: "0 1.25rem 1.875rem rgba(0, 0, 0, 0.1)",
+              }}
+            >
+              {loading ? (
+                <img src={Loading} className="h-6 animate-spin" />
+              ) : (
+                "Submit"
+              )}
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ContactSection;

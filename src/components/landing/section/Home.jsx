@@ -1,7 +1,16 @@
+import * as React from "react";
 import { BsDot } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { FaArrowUp } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
+import {
+  FaWhatsapp,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube,
+  FaTwitter,
+} from "react-icons/fa";
 import MicrosoftLogo from "@/assets/microsoft_logo.svg";
 import GmeetLogo from "@/assets/gmeet_logo.svg";
 import ZoomLogo from "@/assets/zoom_logo.svg";
@@ -59,7 +68,7 @@ const HomeSection = () => {
   ];
 
   return (
-    <section className="pt-[5.1875rem] relative mb-10">
+    <section id="home" className="pt-[5.1875rem] relative">
       <img
         src={Vector587}
         className="absolute xl:top-[5.625rem] xl:left-[141px] xl2:left-[182px] xl3:left-[221px] 2xl:left-[16.75rem]"
@@ -135,14 +144,14 @@ const HomeSection = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <div className="flex flex-col justify-center items-center border lg:w-[60%] xl:w-[57%] xl2:w-[54%] xl3:w-[51%] 2xl:w-[48%]">
+        <div className="flex flex-col justify-center items-center lg:w-[60%] xl:w-[57%] xl2:w-[54%] xl3:w-[51%] 2xl:w-[48%]">
           <span className="capitalize font-normal lg:text-sm xl:text-base text-custom-516371 mb-4">
             designing with us
           </span>
           <h1 className="capitalize font-bold lg:text-6xl xl:text-7xl text-center text-custom-blue mb-6">
             the beloved design company in konoha
           </h1>
-          <p className="font-normal lg:text-sm xl:text-base text-center text-custom-516371 border lg:mx-[72px] xl:mx-[6.0625rem] mb-6">
+          <p className="font-normal lg:text-sm xl:text-base text-center text-custom-516371 lg:mx-[72px] xl:mx-[6.0625rem] mb-6">
             With us achieving dreams in building your products, together say
             “Yes” to extraordinary designs
           </p>
@@ -193,7 +202,7 @@ const HomeSection = () => {
             ))}
           </div>
         </div>
-        <div className="w-full py-10 flex flex-col items-center space-y-[1.3125rem]">
+        <div className="w-full pt-10 flex flex-col items-center space-y-[1.3125rem]">
           <span className="capitalize font-normal lg:text-sm xl:text-base text-custom-A7ABB6">
             trusted partner
           </span>

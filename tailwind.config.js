@@ -47,6 +47,15 @@ export default {
         xl3: "1440px",
         "2xl2": "1920px",
       },
+      // keyframes: {
+      //   appear: {
+      //     "0%": { opacity: "0", transform: "scale(0.5)" },
+      //     "100%": { opacity: "1", transform: "scale(1)" },
+      //   },
+      // },
+      // animation: {
+      //   appear: "appear 1s linear",
+      // },
     },
   },
   plugins: [],
