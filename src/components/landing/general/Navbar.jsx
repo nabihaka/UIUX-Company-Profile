@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import HorizonLogo from "@/assets/horizon_logo.svg";
+import HorizonLogo from "@/assets/svg/horizon_logo.svg";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState(0);
@@ -103,14 +103,14 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`bg-white w-full sticky top-0 lg:px-[10px] xl:px-[54px] xl2:px-[94px] xl3:px-[134px] 2xl:px-[182px] py-6 flex justify-center items-center transition-transform duration-300 z-50 ${
+      className={`bg-white w-full sticky top-0 py-6 flex justify-center items-center transition-transform duration-300 z-50 ${
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex w-full justify-between items-center">
+      <div className="flex border justify-between items-center lg:w-[958px] xl:w-[1152px]">
         <img
           src={HorizonLogo}
-          className="lg:scale-95 xl:scale-100"
+          className="lg:scale-95 xl:scale-100 lg:-ml-[5px] xl:ml-0"
           alt="Horizon Logo"
         />
         <div className="flex space-x-10">

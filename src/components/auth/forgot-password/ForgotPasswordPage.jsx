@@ -4,19 +4,22 @@ import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GeneralInput from "@/components/auth/GeneralInput.jsx";
 import ButtonSubmit from "@/components/auth/ButtonSubmit.jsx";
 import { forgotPassword } from "@/helpers/axiosForgotPassword.js";
-import LogoHorizon from "@/assets/horizon_logo.svg";
+import Loading from "@/assets/svg/loading.svg";
+import LogoHorizon from "@/assets/svg/horizon_logo.svg";
 
 const ForgotPasswordPage = () => {
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
     email: "",
   });
 
-  const handleSubmit = () => {};
-  const formData = new FormData();
+  const handleSubmit = () => {
+    const formData = new FormData();
 
-  formData.append("Email", data.email);
+    formData.append("Email", data.email);
 
-  forgotPassword(formData);
+    forgotPassword(formData, setLoading);
+  };
 
   return (
     <div className="bg-white min-h-screen w-screen flex justify-center items-center py-9">
@@ -35,22 +38,12 @@ const ForgotPasswordPage = () => {
               setData((prev) => ({ ...prev, email: e.target.value }))
             }
           />
-          {/* <div className="flex flex-col">
-            <label
-              htmlFor="email"
-              className="text-custom-blue font-medium text-base tracking-negative-2"
-            >
-              Email
-              <span className="text-custom-purple">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="bg-white placeholder-custom-gray font-normal text-base border tracking-negative-2 border-custom-outline-gray pl-6 pr-10 py-[1.125rem] rounded-2xl mt-[0.8125rem] focus:bg-white focus:outline-none focus:ring-1 focus:ring-custom-purple"
-              placeholder="mail@simmmple.com"
-            />
-          </div> */}
-          <ButtonSubmit title="Submit" handleSubmit={handleSubmit} />
+          <ButtonSubmit
+            isLoading={loading}
+            loadingImg={Loading}
+            title="Submit"
+            handleSubmit={handleSubmit}
+          />
           <div className="flex flex-row justify-center items-center pt-5">
             <img src={LogoHorizon} />
           </div>

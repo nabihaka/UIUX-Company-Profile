@@ -1,6 +1,8 @@
 import axiosHelper from "./axiosInterceptor";
 
-export const login = async (formData) => {
+export const login = async (formData, setLoading) => {
+  setLoading(true);
+
   await axiosHelper
     .post("http://127.0.0.1:8000/api/login", formData, {
       headers: {
@@ -15,5 +17,8 @@ export const login = async (formData) => {
 
       // Jika berhasil, arahkan ke dashboard
       window.location.href = "/dashboard/main";
+    })
+    .finally(() => {
+      setLoading(false);
     });
 };

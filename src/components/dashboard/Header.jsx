@@ -4,7 +4,7 @@ import { MdNotificationsNone } from "react-icons/md";
 import { FaMoon } from "react-icons/fa";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 import { FiSearch } from "react-icons/fi";
-import EthIcon from "@/assets/eth_icon.svg";
+import EthIcon from "@/assets/svg/eth_icon.svg";
 
 const Header = () => {
   const location = useLocation();

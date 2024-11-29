@@ -1,6 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Loading from "@/assets/svg/loading.svg";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GoogleButton from "@/components/auth/ButtonGoogle.jsx";
 import HorizonLogo from "@/components/auth/HorizonLogo.jsx";
@@ -10,8 +11,11 @@ import KeepLoggedIn from "@/components/auth/KeepLoggedIn.jsx";
 import ButtonSubmit from "@/components/auth/ButtonSubmit.jsx";
 import ChangeAuth from "@/components/auth/ChangeAuth.jsx";
 import { login } from "@/helpers/axiosLogin.js";
+import { googleLogin } from "@/helpers/axiosGoogleLogin.js";
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
+  const [loadingGoogle, setLoadingGoogle] = useState(false);
   const [data, setData] = useState({
     name: "",
     password: "",
@@ -23,7 +27,11 @@ const LoginPage = () => {
     formData.append("Email", data.email);
     formData.append("Password", data.password);
 
-    login(formData);
+    login(formData, setLoading);
+  };
+
+  const handleGoogleLogin = async () => {
+    await googleLogin(setLoadingGoogle);
   };
 
   return (
@@ -34,7 +42,10 @@ const LoginPage = () => {
             title="Sign In"
             description="Enter your email and password to sign in!"
           />
-          <GoogleButton />
+          <GoogleButton
+            isLoading={loadingGoogle}
+            handleClick={handleGoogleLogin}
+          />
           <div className="w-full flex flex-row justify-center items-center my-[1.8125rem]">
             <span className="text-custom-gray text-base tracking-negative-2">
               or
@@ -71,7 +82,12 @@ const LoginPage = () => {
               </Link>
             </div>
             {/* <--------------------------SUBMIT BUTTON---------------------------> */}
-            <ButtonSubmit title="Sign In" handleSubmit={handleSubmit} />
+            <ButtonSubmit
+              isLoading={loading}
+              loadingImg={Loading}
+              title="Sign In"
+              handleSubmit={handleSubmit}
+            />
             {/* <--------------------------CHANGE AUTH---------------------------> */}
             <ChangeAuth
               question="Not registered yet?"

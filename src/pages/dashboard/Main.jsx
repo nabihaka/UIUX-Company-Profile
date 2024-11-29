@@ -11,15 +11,15 @@ import {
 } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import { BsDot } from "react-icons/bs";
-import TableIcon from "@/assets/active_tables_icon.svg";
-import DollarIcon from "@/assets/dollar_icon.svg";
-import UsCircleIcon from "@/assets/us_circle_icon.svg";
-import NewTasksIcon from "@/assets/new_tasks_icon.svg";
-import DocumentIcon from "@/assets/document_icon.svg";
-import WeeklyRevenue from "@/assets/weekly_revenue_chart.svg";
-import Sign from "@/assets/group_97.svg";
-import Vector13 from "@/assets/vector_13.svg";
-import Vector14 from "@/assets/vector_14.svg";
+import TableIcon from "@/assets/svg/active_tables_icon.svg";
+import DollarIcon from "@/assets/svg/dollar_icon.svg";
+import UsCircleIcon from "@/assets/svg/us_circle_icon.svg";
+import NewTasksIcon from "@/assets/svg/new_tasks_icon.svg";
+import DocumentIcon from "@/assets/svg/document_icon.svg";
+import WeeklyRevenue from "@/assets/svg/weekly_revenue_chart.svg";
+import Sign from "@/assets/svg/group_97.svg";
+import Vector13 from "@/assets/svg/vector_13.svg";
+import Vector14 from "@/assets/svg/vector_14.svg";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

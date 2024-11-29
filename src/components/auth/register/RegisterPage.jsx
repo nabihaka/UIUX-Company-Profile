@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import Loading from "@/assets/svg/loading.svg";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GoogleButton from "@/components/auth/ButtonGoogle.jsx";
 import HorizonLogo from "@/components/auth/HorizonLogo.jsx";
@@ -15,6 +16,7 @@ import axios from "axios";
 const RegisterPage = () => {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const [data, setData] = useState({
     name: "",
@@ -26,6 +28,7 @@ const RegisterPage = () => {
     password: "",
     confirmPassword: "",
   });
+  // console.log(data);
 
   const handleSubmit = () => {
     const formData = new FormData();
@@ -39,7 +42,7 @@ const RegisterPage = () => {
     formData.append("Password", data.password);
     formData.append("Password_confirmation", data.confirmPassword);
 
-    register(formData);
+    register(formData, setLoading);
   };
 
   useEffect(() => {
@@ -177,7 +180,12 @@ const RegisterPage = () => {
             {/* <--------------------------KEEP ME LOGGED IN---------------------------> */}
             <KeepLoggedIn />
             {/* <--------------------------SUBMIT BUTTON---------------------------> */}
-            <ButtonSubmit title="Sign Up" handleSubmit={handleSubmit} />
+            <ButtonSubmit
+              isLoading={loading}
+              loadingImg={Loading}
+              title="Sign Up"
+              handleSubmit={handleSubmit}
+            />
             {/* <--------------------------CHANGE AUTH---------------------------> */}
             <ChangeAuth
               question="Already have an account?"

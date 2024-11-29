@@ -1,10 +1,11 @@
 import * as React from "react";
-import HorizonLogo from "@/assets/horizon_logo.svg";
+import HorizonLogo from "@/assets/svg/horizon_logo.svg";
 import { FaCircleCheck } from "react-icons/fa6";
 
 const SuccessfulVerificationPage = () => {
   const handleClick = () => {
-    window.location.href = "/";
+    localStorage.removeItem("token");
+    window.location.href = "/login-admin";
   };
 
   return (

@@ -1,5 +1,5 @@
 import * as React from "react";
-import LogoHorizon from "@/assets/horizon_logo.svg";
+import LogoHorizon from "@/assets/svg/horizon_logo.svg";
 
 const HorizonLogo = () => {
   return (

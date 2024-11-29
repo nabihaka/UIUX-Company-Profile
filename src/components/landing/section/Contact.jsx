@@ -1,8 +1,9 @@
 import * as React from "react";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import Loading from "@/assets/loading.svg";
-import ContactImg from "@/assets/contact_image.svg";
+import Loading from "@/assets/svg/loading.svg";
+// import ContactImg from "@/assets/svg/contact_image.svg";
+import ContactImg from "@/assets/png/contact_image.png";
 import { formLanding } from "@/helpers/axiosFormLanding.js";
 
 const ContactSection = () => {
@@ -82,14 +83,173 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="pt-[120px]">
-      <div className="flex justify-between items-center xl:mr-[54px] xl:ml-0 xl2:mr-[94px] xl2:ml-0 xl3:mr-[134px] xl3:ml-0 2xl:mr-[182px] 2xl:ml-0 mb-[7.5rem]">
-        <img src={ContactImg} className="h-[680px] rounded-r-3xl" />
+      {/* xl:mr-[54px] xl:ml-0 xl2:mr-[94px] xl2:ml-0 xl3:mr-[134px] xl3:ml-0
+      2xl:mr-[182px] 2xl:ml-0 */}
+      <div className="flex justify-center">
+        <div className="flex justify-between items-center border border-red-500 lg:min-w-[1145.5px] xl:min-w-[1338px] relative lg:-left-[95px] xl:-left-[94px] mb-[7.5rem]">
+          <img
+            src={ContactImg}
+            className="lg:w-[55%] xl:w-[95%] lg:h-[635px] xl:h-[680px] object-cover rounded-r-3xl"
+          />
+          <div className="w-full flex flex-col lg:pl-8 xl:pl-12">
+            <div className="flex flex-col items-start mb-9">
+              <h2 className="font-bold lg:text-[35px] xl:text-[2.5rem] text-custom-blue">
+                Get in touch
+              </h2>
+              <p className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
+                Have an enquiry? Fill out the form to contact our team
+              </p>
+            </div>
+            <div className="flex flex-col space-y-6">
+              <div className="flex items-center space-x-3.5">
+                <div className="w-full flex flex-col space-y-[0.8125rem]">
+                  <label
+                    htmlFor="name"
+                    className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
+                  >
+                    Name<span className="text-custom-purple">*</span>
+                  </label>
+                  <input
+                    id="name"
+                    type="text"
+                    value={data.name}
+                    placeholder="Your name"
+                    onChange={(e) =>
+                      setData((prev) => ({ ...prev, name: e.target.value }))
+                    }
+                    className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  />
+                </div>
+                <div className="w-full flex flex-col space-y-[0.8125rem]">
+                  <label
+                    htmlFor="phone"
+                    className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
+                  >
+                    Phone number<span className="text-custom-purple">*</span>
+                  </label>
+                  <input
+                    id="phone"
+                    type="text"
+                    value={data.phone}
+                    placeholder="089015151999"
+                    onChange={(e) =>
+                      setData((prev) => ({ ...prev, phone: e.target.value }))
+                    }
+                    className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  />
+                </div>
+              </div>
+              <div className="flex space-x-3.5 items-end">
+                <div className="w-full flex flex-col space-y-[0.8125rem]">
+                  <label
+                    htmlFor="email"
+                    className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
+                  >
+                    Email<span className="text-custom-purple">*</span>
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    value={data.email}
+                    placeholder="simple@example.com"
+                    onChange={(e) =>
+                      setData((prev) => ({ ...prev, email: e.target.value }))
+                    }
+                    className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  />
+                </div>
+                <div className="w-full border flex flex-col space-y-[0.8125rem]">
+                  <div className="flex items-center space-x-2">
+                    <input
+                      id="appoinment"
+                      type="checkbox"
+                      checked={isAppointmentChecked}
+                      onChange={handleCheckboxChange}
+                      className="accent-custom-purple h-[1.125rem] w-[1.125rem] cursor-pointer"
+                    />
+                    <label
+                      htmlFor="appoinment"
+                      className="text-custom-blue font-medium lg:text-sm xl:text-base cursor-pointer"
+                    >
+                      Make an appoinment?
+                    </label>
+                  </div>
+                  <div className="w-full flex flex-col space-y-[0.8125rem]">
+                    <label
+                      htmlFor="datetime"
+                      className={`w-max text-custom-blue font-medium lg:text-sm xl:text-base transition duration-500 ease-out ${
+                        !isAppointmentChecked
+                          ? "cursor-not-allowed opacity-50"
+                          : ""
+                      }`}
+                    >
+                      Date and time
+                      <span className="text-custom-purple">*</span>
+                    </label>
+                    <input
+                      id="datetime"
+                      type="datetime-local"
+                      disabled={!isAppointmentChecked}
+                      required={isAppointmentChecked}
+                      value={appointmentDateTime}
+                      onChange={handleDateTimeChange}
+                      className={`bg-transparent font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple transition duration-500 ease-out ${
+                        !isAppointmentChecked
+                          ? "cursor-not-allowed opacity-50"
+                          : ""
+                      }`}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col space-y-[0.8125rem]">
+                <label
+                  htmlFor="message"
+                  className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
+                >
+                  Message<span className="text-custom-purple">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  type="text"
+                  value={data.message}
+                  placeholder="Your question/message"
+                  onChange={(e) =>
+                    setData((prev) => ({ ...prev, message: e.target.value }))
+                  }
+                  className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 h-28 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                />
+              </div>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                disabled={loading}
+                className="bg-custom-purple w-40 py-3 flex justify-center items-center font-medium lg:text-sm xl:text-base text-white rounded-full hover:bg-custom-blue transition duration-200 ease-in-out shadow-xl"
+                style={{
+                  boxShadow: "0 1.25rem 1.875rem rgba(0, 0, 0, 0.1)",
+                }}
+              >
+                {loading ? (
+                  <img src={Loading} className="h-6 animate-spin" />
+                ) : (
+                  "Submit"
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <div className="flex justify-between items-center border border-red-500 xl:max-w-[1338px] mx-auto relative -left-[94px] mb-[7.5rem]">
+        <img
+          src={ContactImg}
+          className="lg:w-[45%] xl:w-auto h-[680px] object-cover rounded-r-3xl"
+        />
         <div className="w-full flex flex-col pl-12">
           <div className="flex flex-col items-start mb-9">
-            <h2 className="font-bold text-[2.5rem] text-custom-blue">
+            <h2 className="font-bold lg:text-[35px] xl:text-[2.5rem] text-custom-blue">
               Get in touch
             </h2>
-            <p className="font-light text-base text-custom-A7ABB6">
+            <p className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
               Have an enquiry? Fill out the form to contact our team
             </p>
           </div>
@@ -98,7 +258,7 @@ const ContactSection = () => {
               <div className="w-full flex flex-col space-y-[0.8125rem]">
                 <label
                   htmlFor="name"
-                  className="w-max text-custom-blue font-medium text-base"
+                  className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
                 >
                   Name<span className="text-custom-purple">*</span>
                 </label>
@@ -110,13 +270,13 @@ const ContactSection = () => {
                   onChange={(e) =>
                     setData((prev) => ({ ...prev, name: e.target.value }))
                   }
-                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
                 />
               </div>
               <div className="w-full flex flex-col space-y-[0.8125rem]">
                 <label
                   htmlFor="phone"
-                  className="w-max text-custom-blue font-medium text-base"
+                  className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
                 >
                   Phone number<span className="text-custom-purple">*</span>
                 </label>
@@ -128,7 +288,7 @@ const ContactSection = () => {
                   onChange={(e) =>
                     setData((prev) => ({ ...prev, phone: e.target.value }))
                   }
-                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
                 />
               </div>
             </div>
@@ -136,7 +296,7 @@ const ContactSection = () => {
               <div className="w-full flex flex-col space-y-[0.8125rem]">
                 <label
                   htmlFor="email"
-                  className="w-max text-custom-blue font-medium text-base"
+                  className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
                 >
                   Email<span className="text-custom-purple">*</span>
                 </label>
@@ -148,10 +308,10 @@ const ContactSection = () => {
                   onChange={(e) =>
                     setData((prev) => ({ ...prev, email: e.target.value }))
                   }
-                  className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                  className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
                 />
               </div>
-              <div className="w-full flex flex-col space-y-[0.8125rem]">
+              <div className="w-full border flex flex-col space-y-[0.8125rem]">
                 <div className="flex items-center space-x-2">
                   <input
                     id="appoinment"
@@ -162,7 +322,7 @@ const ContactSection = () => {
                   />
                   <label
                     htmlFor="appoinment"
-                    className="text-custom-blue font-medium text-base cursor-pointer"
+                    className="text-custom-blue font-medium lg:text-sm xl:text-base cursor-pointer"
                   >
                     Make an appoinment?
                   </label>
@@ -170,7 +330,7 @@ const ContactSection = () => {
                 <div className="w-full flex flex-col space-y-[0.8125rem]">
                   <label
                     htmlFor="datetime"
-                    className={`w-max text-custom-blue font-medium text-base transition duration-500 ease-out ${
+                    className={`w-max text-custom-blue font-medium lg:text-sm xl:text-base transition duration-500 ease-out ${
                       !isAppointmentChecked
                         ? "cursor-not-allowed opacity-50"
                         : ""
@@ -186,7 +346,7 @@ const ContactSection = () => {
                     required={isAppointmentChecked}
                     value={appointmentDateTime}
                     onChange={handleDateTimeChange}
-                    className={`bg-transparent font-normal text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple transition duration-500 ease-out ${
+                    className={`bg-transparent font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple transition duration-500 ease-out ${
                       !isAppointmentChecked
                         ? "cursor-not-allowed opacity-50"
                         : ""
@@ -198,7 +358,7 @@ const ContactSection = () => {
             <div className="flex flex-col space-y-[0.8125rem]">
               <label
                 htmlFor="message"
-                className="w-max text-custom-blue font-medium text-base"
+                className="w-max text-custom-blue font-medium lg:text-sm xl:text-base"
               >
                 Message<span className="text-custom-purple">*</span>
               </label>
@@ -210,13 +370,14 @@ const ContactSection = () => {
                 onChange={(e) =>
                   setData((prev) => ({ ...prev, message: e.target.value }))
                 }
-                className="bg-transparent placeholder-custom-gray font-normal text-base border border-custom-A7ABB6 h-28 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
+                className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 h-28 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
               />
             </div>
             <button
               type="submit"
               onClick={handleSubmit}
-              className="bg-custom-purple w-40 py-3 flex justify-center items-center font-medium text-base text-white rounded-full hover:bg-custom-blue transition duration-200 ease-in-out shadow-xl"
+              disabled={loading}
+              className="bg-custom-purple w-40 py-3 flex justify-center items-center font-medium lg:text-sm xl:text-base text-white rounded-full hover:bg-custom-blue transition duration-200 ease-in-out shadow-xl"
               style={{
                 boxShadow: "0 1.25rem 1.875rem rgba(0, 0, 0, 0.1)",
               }}
@@ -229,7 +390,7 @@ const ContactSection = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

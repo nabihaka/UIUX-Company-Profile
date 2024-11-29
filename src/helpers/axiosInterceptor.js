@@ -52,9 +52,7 @@ axiosHelper.interceptors.response.use(
       if (typeof window !== "undefined") {
         localStorage.clear();
 
-        setTimeout(() => {
-          window.location.href = "/";
-        }, 3000);
+        setTimeout(() => {}, 3000);
       }
     }
 

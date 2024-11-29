@@ -7,11 +7,12 @@ import Landing from "@/pages/landing/Landing.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ForgotPassword from "@/pages/auth/ForgotPassword.jsx";
+import EmailConfirmation from "@/pages/auth/EmailConfirmation.jsx";
 import NewPassword from "@/pages/auth/NewPassword.jsx";
 // import EmailVerificationPage from "@/components/auth/verification/EmailVerificationPage.jsx";
 import EmailVerification from "@/pages/auth/EmailVerification.jsx";
 import SuccessfulVerification from "@/pages/auth/SuccessfulVerification.jsx";
-// import Dashboard from "./pages/dashboard/dashboard.jsx";
+import Dashboard from "@/pages/dashboard/dashboard.jsx";
 import DashboardLayout from "@/layout/Dashboard.jsx";
 // import Home from "./pages/dashboard/home.jsx";
 import Main from "@/pages/dashboard/Main.jsx";
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
   },
 
   {
+    path: "/confirmation",
+    element: <EmailConfirmation />,
+  },
+
+  {
     path: "/create-new-password",
     element: <NewPassword />,
   },
@@ -66,7 +72,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <PrivateRoutes>
-        <DashboardLayout />
+        <Dashboard />
       </PrivateRoutes>
     ),
     children: [

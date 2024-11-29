@@ -1,7 +1,8 @@
 import axiosHelper from "./axiosInterceptor";
 // import { useNavigate } from "react-router-dom";
 
-export const register = async (formData) => {
+export const register = async (formData, setLoading) => {
+  setLoading(true);
   // const navigate = useNavigate();
 
   // Simpan data user ke local storage
@@ -11,8 +12,18 @@ export const register = async (formData) => {
         "Content-Type": "multipart/form-data",
       },
     })
-    .then(() => {
+    .then((response) => {
+      const tokenRes = response?.data?.verification_token ?? "";
+      console.log(tokenRes);
+      localStorage.setItem("token", tokenRes);
+
       // Jika berhasil, arahkan ke email verification
       window.location.href = "/verification";
+    })
+    .catch((error) => {
+      console.log(error?.response);
+    })
+    .finally(() => {
+      setLoading(false);
     });
 };
