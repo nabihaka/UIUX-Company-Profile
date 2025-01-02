@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import HomeSection from "@/components/landing/section/Home.jsx";
@@ -9,6 +11,18 @@ import TestimoniSection from "@/components/landing/section/Testimoni.jsx";
 import ContactSection from "@/components/landing/section/Contact.jsx";
 
 const LandingPage = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="w-full min-h-screen">
       <Navbar />

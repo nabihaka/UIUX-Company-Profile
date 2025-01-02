@@ -1,6 +1,6 @@
 import * as React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import Loading from "@/assets/svg/loading.svg";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GoogleButton from "@/components/auth/ButtonGoogle.jsx";
@@ -11,15 +11,39 @@ import KeepLoggedIn from "@/components/auth/KeepLoggedIn.jsx";
 import ButtonSubmit from "@/components/auth/ButtonSubmit.jsx";
 import ChangeAuth from "@/components/auth/ChangeAuth.jsx";
 import { login } from "@/helpers/axiosLogin.js";
-import { googleLogin } from "@/helpers/axiosGoogleLogin.js";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [loadingGoogle, setLoadingGoogle] = useState(false);
   const [data, setData] = useState({
     name: "",
     password: "",
   });
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const tokenFromUrl = urlParams.get("token");
+    const token = localStorage.getItem("token");
+
+    if (tokenFromUrl) {
+      localStorage.setItem("token", tokenFromUrl);
+    }
+
+    if (token) {
+      navigate("/dashboard/main");
+      // window.location.href = "dashboard/main";
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+
+  //   if (token) {
+  //     // Jika token ada, arahkan ke dashboard
+  //     navigate("/dashboard/main");
+  //   }
+  // }, []);
 
   const handleSubmit = () => {
     const formData = new FormData();
@@ -31,7 +55,12 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = async () => {
-    await googleLogin(setLoadingGoogle);
+    // await googleLogin(setLoadingGoogle);
+    setLoadingGoogle(true);
+
+    setTimeout(() => {
+      window.location.href = "http://localhost:8000/auth/google";
+    }, 200);
   };
 
   return (

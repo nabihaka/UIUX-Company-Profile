@@ -52,7 +52,7 @@ const RegisterPage = () => {
         setProvinces(response.data); // Axios mengembalikan data dalam response.data
       })
       .catch((error) => {
-        console.error("Error fetching provinces:", error);
+        // console.error("Error fetching provinces:", error);
       });
   }, []);
 
@@ -63,7 +63,7 @@ const RegisterPage = () => {
         setCities(response.data); // Set cities dengan data dari response
       })
       .catch((error) => {
-        console.error("Error fetching cities:", error);
+        // console.error("Error fetching cities:", error);
       });
   };
 
@@ -72,9 +72,6 @@ const RegisterPage = () => {
     setData((prev) => ({ ...prev, province: provinceId }));
     handleFetchCities(provinceId);
   };
-
-  const [isOpenProvince, setIsOpenProvince] = useState(false);
-  const [isOpenCity, setIsOpenCity] = useState(false);
 
   return (
     <div className="bg-white min-h-screen flex flex-col justify-center items-center py-9">

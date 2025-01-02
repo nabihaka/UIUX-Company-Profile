@@ -31,7 +31,7 @@ const Sidebar = () => {
       localStorage.clear();
 
       //redirect halaman login
-      window.location.href = "/";
+      window.location.href = "/login-admin";
     });
   };
 

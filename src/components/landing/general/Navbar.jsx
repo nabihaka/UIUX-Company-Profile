@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { NAVBAR_LANDING_LINKS } from "@/models/landing/navbar/navbarLanding";
 import HorizonLogo from "@/assets/svg/horizon_logo.svg";
 
 const Navbar = () => {
@@ -8,47 +9,19 @@ const Navbar = () => {
   //   setActiveLink(index);
   // };
 
-  const NAVBAR_LINKS = [
-    {
-      id: 1,
-      name: "Home",
-      path: "/#home",
-      sectionId: "home",
-    },
-    {
-      id: 2,
-      name: "About Us",
-      path: "/#about",
-      sectionId: "about",
-    },
-    {
-      id: 3,
-      name: "Services",
-      path: "/#services",
-      sectionId: "services",
-    },
-    {
-      id: 4,
-      name: "Portofolio",
-      path: "/#portofolio",
-      sectionId: "portofolio",
-    },
-    {
-      id: 5,
-      name: "Testimoni",
-      path: "/#testimoni",
-      sectionId: "testimoni",
-    },
-    {
-      id: 6,
-      name: "Contact",
-      path: "/#contact",
-      sectionId: "contact",
-    },
-  ];
-
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const currentHash = window.location.hash;
+    const activeIndex = NAVBAR_LANDING_LINKS.findIndex(
+      (link) => `/#${link.sectionId}` === currentHash
+    );
+
+    if (activeIndex !== -1) {
+      setActiveLink(activeIndex);
+    }
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -75,12 +48,12 @@ const Navbar = () => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const sectionId = entry.target.id;
-          const activeIndex = NAVBAR_LINKS.findIndex(
+          const activeIndex = NAVBAR_LANDING_LINKS.findIndex(
             (link) => link.sectionId === sectionId
           );
           setActiveLink(activeIndex);
 
-          console.log(`Section ${sectionId} is now active.`);
+          // console.log(`Section ${sectionId} is now active.`);
         }
       });
     };
@@ -91,7 +64,7 @@ const Navbar = () => {
       threshold: 0.4,
     });
 
-    NAVBAR_LINKS.forEach((link) => {
+    NAVBAR_LANDING_LINKS.forEach((link) => {
       const section = document.getElementById(link.sectionId);
       if (section) observer.observe(section);
     });
@@ -114,7 +87,7 @@ const Navbar = () => {
           alt="Horizon Logo"
         />
         <div className="flex space-x-10">
-          {NAVBAR_LINKS.map((link, index) => (
+          {NAVBAR_LANDING_LINKS.map((link, index) => (
             <a
               key={index}
               href={link.path}

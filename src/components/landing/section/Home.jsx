@@ -3,14 +3,8 @@ import { BsDot } from "react-icons/bs";
 import { GoDotFill } from "react-icons/go";
 import { FaArrowUp } from "react-icons/fa6";
 import { IoIosStar } from "react-icons/io";
-import {
-  FaWhatsapp,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
-  FaTwitter,
-} from "react-icons/fa";
+import { ROLE_LISTS } from "@/models/landing/home/roleLists";
+import { SOCIAL_ICONS } from "@/models/landing/home/socialIcons";
 import MicrosoftLogo from "@/assets/svg/microsoft_logo.svg";
 import GmeetLogo from "@/assets/svg/gmeet_logo.svg";
 import ZoomLogo from "@/assets/svg/zoom_logo.svg";
@@ -24,49 +18,6 @@ import Photo4 from "@/assets/svg/photo4.svg";
 import Photo5 from "@/assets/svg/photo5.svg";
 
 const HomeSection = () => {
-  const ROLE_LISTS = [
-    {
-      id: 1,
-      name: "UI/UX Design",
-    },
-    {
-      id: 2,
-      name: "Prototype",
-    },
-    {
-      id: 3,
-      name: "Web Design",
-    },
-    {
-      id: 4,
-      name: "Landing Page",
-    },
-    {
-      id: 5,
-      name: "Mobile Design",
-    },
-    {
-      id: 6,
-      name: "Development",
-    },
-  ];
-
-  const SOCIAL_ICONS = [
-    { id: 1, icon: <FaWhatsapp className="lg:scale-[130%] xl:scale-[150%]" /> },
-    {
-      id: 2,
-      icon: <FaFacebookF className="lg:scale-[110%] xl:scale-[130%]" />,
-    },
-    {
-      id: 3,
-      icon: <FaInstagram className="lg:scale-[130%] xl:scale-[150%]" />,
-    },
-    {
-      id: 4,
-      icon: <FaLinkedinIn className="lg:scale-[130%] xl:scale-[150%]" />,
-    },
-  ];
-
   return (
     <section id="home" className="pt-[5.1875rem] relative">
       <div className="flex flex-col justify-center items-center">

@@ -2,6 +2,7 @@ import * as React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { logout } from "@/helpers/axiosLogout.js";
+import { FiLogOut } from "react-icons/fi";
 import Loading from "@/assets/svg/loading.svg";
 import HorizonLogo from "@/assets/svg/horizon_logo.svg";
 import ActiveHomeIcon from "@/assets/svg/active_home_icon.svg";
@@ -10,12 +11,14 @@ import ActiveTablesIcon from "@/assets/svg/active_tables_icon.svg";
 import ActiveKanbanIcon from "@/assets/svg/active_kanban_icon.svg";
 import ActiveProfileIcon from "@/assets/svg/active_profile_icon.svg";
 import ActiveClientIcon from "@/assets/svg/active_client_icon.svg";
+import ActiveBlogIcon from "@/assets/svg/active_blog_icon.svg";
 import InactiveHomeIcon from "@/assets/svg/inactive_home_icon.svg";
 import InactiveNftIcon from "@/assets/svg/inactive_nft_icon.svg";
 import InactiveTablesIcon from "@/assets/svg/inactive_tables_icon.svg";
 import InactiveKanbanIcon from "@/assets/svg/inactive_kanban_icon.svg";
 import InactiveProfileIcon from "@/assets/svg/inactive_profile_icon.svg";
 import InactiveClientIcon from "@/assets/svg/inactive_client_icon.svg";
+import InactiveBlogIcon from "@/assets/svg/inactive_blog_icon.svg";
 import { TiHome } from "react-icons/ti";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
@@ -69,6 +72,13 @@ const Sidebar = () => {
       active: ActiveClientIcon,
       inactive: InactiveClientIcon,
     },
+    {
+      id: 7,
+      path: "/blog-admin",
+      name: "Blog",
+      active: ActiveBlogIcon,
+      inactive: InactiveBlogIcon,
+    },
   ];
 
   const handleLogout = async () => {
@@ -82,7 +92,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="w-[290px] border fixed bg-white min-h-screen">
+    <div className="w-[290px] fixed bg-white min-h-screen z-10">
       <div className="flex justify-center items-center py-14 border-b border-custom-light">
         <img src={HorizonLogo} />
       </div>
@@ -117,13 +127,16 @@ const Sidebar = () => {
           ))}
           {/* <--------------------END--------------------> */}
           <button
-            className="bg-gradient-to-r from-custom-purple to-violet-500 w-36 ml-[10px] py-2 flex justify-center items-center font-bold text-white text-4 rounded-full hover:bg-custom-blue transition duration-200 ease-in-out"
+            className="bg-gradient-to-r from-custom-purple to-violet-500 ml-[10px] px-[1.4375rem] w-[131px] py-2 flex justify-center items-center font-bold text-white text-4 rounded-2xl hover:bg-custom-blue transition duration-200 ease-in-out"
             onClick={handleLogout}
           >
             {loading ? (
-              <img src={Loading} className="h-6 animate-spin" />
+              <img src={Loading} className="h-6 mx-auto animate-spin" />
             ) : (
-              "Logout"
+              <div className="flex items-center space-x-[10px]">
+                <FiLogOut className="text-xl text-white rotate-180 flex-shrink-0" />
+                <span>Logout</span>
+              </div>
             )}
           </button>
         </div>

@@ -1,0 +1,26 @@
+.scrollable {
+  overflow-y: auto;
+  transition: padding-right 0.3s;
+  padding-right: 20px; /* Default padding-right */
+}
+
+.scrollable::-webkit-scrollbar {
+  width: 0; /* Sembunyikan scrollbar secara default */
+}
+
+.scrollable:hover::-webkit-scrollbar {
+  width: 8px; /* Tampilkan scrollbar saat hover */
+}
+
+.scrollable.overflowing {
+  padding-right: 3px; /* Ubah padding saat overflow */
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Untuk Firefox */
+  -ms-overflow-style: none; /* Untuk Internet Explorer 10+ */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Untuk Webkit-based browsers */
+}

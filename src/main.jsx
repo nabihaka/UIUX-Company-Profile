@@ -2,8 +2,12 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import PrivateRoutes from "./helpers/PrivateRoutes.jsx";
+import PrivateRoutes from "./helpers/PrivateRoutes.js";
 import Landing from "@/pages/landing/Landing.jsx";
+import Blog from "@/pages/blog/Blog.jsx";
+import BlogAdmin from "@/pages/blog/BlogAdmin.jsx";
+import CreateNewBlog from "@/pages/blog/CreateNewBlog.jsx";
+import UpdateBlog from "@/pages/blog/UpdateBlog.jsx";
 import Login from "./pages/auth/Login.jsx";
 import Register from "./pages/auth/Register.jsx";
 import ForgotPassword from "@/pages/auth/ForgotPassword.jsx";
@@ -13,7 +17,7 @@ import NewPassword from "@/pages/auth/NewPassword.jsx";
 import EmailVerification from "@/pages/auth/EmailVerification.jsx";
 import SuccessfulVerification from "@/pages/auth/SuccessfulVerification.jsx";
 import Dashboard from "@/pages/dashboard/dashboard.jsx";
-import DashboardLayout from "@/layout/Dashboard.jsx";
+// import DashboardLayout from "@/layout/Dashboard.jsx";
 // import Home from "./pages/dashboard/home.jsx";
 import Main from "@/pages/dashboard/Main.jsx";
 // import Members from "@/pages/dashboard/Members.jsx";
@@ -30,6 +34,26 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
+  },
+
+  {
+    path: "/blog",
+    element: <Blog />,
+  },
+
+  {
+    path: "/blog-admin",
+    element: <BlogAdmin />,
+  },
+
+  {
+    path: "/create-new-blog",
+    element: <CreateNewBlog />,
+  },
+
+  {
+    path: "/update-blog",
+    element: <UpdateBlog />,
   },
 
   {
@@ -77,11 +101,11 @@ const router = createBrowserRouter([
     ),
     children: [
       { index: true, path: "main", element: <Main /> }, // Home sebagai default di /dashboard
-      { path: "nftmarketplace", element: <NftMarketplace /> }, // Members di /dashboard/members
-      { path: "tables", element: <Tables /> }, // Members di /dashboard/members
-      { path: "kanban", element: <Kanban /> }, // Members di /dashboard/members
-      { path: "profile", element: <Profile /> }, // Members di /dashboard/members
-      { path: "client", element: <Client /> }, // Members di /dashboard/members
+      { path: "nftmarketplace", element: <NftMarketplace /> },
+      { path: "tables", element: <Tables /> },
+      { path: "kanban", element: <Kanban /> },
+      { path: "profile", element: <Profile /> },
+      { path: "client", element: <Client /> },
     ],
   },
 ]);

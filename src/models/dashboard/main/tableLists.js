@@ -1,0 +1,42 @@
+export const table_lists = [
+  {
+    id: 1,
+    name: "Horizon UI PRO",
+    progress: "17.5%",
+    quantity: 2.458,
+    date: "24.Jan.2021",
+    forId: "h-ui-pro",
+  },
+  {
+    id: 2,
+    name: "Horizon UI Free",
+    progress: "10.8%",
+    quantity: 1.458,
+    date: "12.Jun.2021",
+    forId: "h-ui-free",
+  },
+  {
+    id: 3,
+    name: "Weekly Update",
+    progress: "21.3%",
+    quantity: 1.024,
+    date: "5.Jan.2021",
+    forId: "weekly_update",
+  },
+  {
+    id: 4,
+    name: "Venus 3D Asset",
+    progress: "31.5%",
+    quantity: 858,
+    date: "7.Mar.2021",
+    forId: "venus_wd_asset",
+  },
+  {
+    id: 5,
+    name: "Marketplace",
+    progress: "12.2%",
+    quantity: 258,
+    date: "17.Dec.2021",
+    forId: "marketplace",
+  },
+];

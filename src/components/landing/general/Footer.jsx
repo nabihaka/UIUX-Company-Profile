@@ -27,7 +27,10 @@ const Footer = () => {
                   service, modern homes and interest-free payments
                 </p>
               </div>
-              <button className="bg-white px-6 py-3 font-bold text-sm text-custom-purple rounded-xl">
+              <button
+                type="button"
+                className="bg-white px-6 py-3 font-bold text-sm text-custom-purple rounded-xl active:bg-custom-blue active:text-white hover:bg-custom-blue hover:text-white transition duration-200 ease-in-out"
+              >
                 Register
               </button>
             </div>
@@ -45,39 +48,39 @@ const Footer = () => {
             </div>
             <div className="flex flex-col items-start space-y-6">
               <span className="font-bold text-bold lg:text-sm xl:text-base">
-                Home
+                Services
               </span>
               <div className="flex flex-col space-y-6">
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Beranda
+                  Documentation
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Program Keahlian
+                  Design
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Gallery
+                  Themes
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Our News
+                  Illustration
                 </span>
               </div>
             </div>
             <div className="flex flex-col items-start space-y-6">
               <span className="font-bold text-bold lg:text-sm xl:text-base">
-                About
+                Company
               </span>
               <div className="flex flex-col space-y-6">
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Beranda
+                  About
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Program Keahlian
+                  Terms
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Gallery
+                  Privacy Policy
                 </span>
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  Our News
+                  Careers
                 </span>
               </div>
             </div>

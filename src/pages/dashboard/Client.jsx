@@ -9,6 +9,18 @@ const Client = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const fetchedData = await fetchFormLanding(setLoading);
+  //     if (fetchedData) {
+  //       setData(fetchedData);
+
+  //     }
+  //   };
+
+  //   getData();
+  // }, []);
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:8000/api/table")
@@ -61,14 +73,14 @@ const Client = () => {
                 </tr>
               </thead>
               <tbody>
-                {data.map((item) => (
+                {data.map((item, index) => (
                   <tr
                     key={item.id}
                     className={`${item.id % 2 !== 0 ? "bg-custom-light" : ""}`}
                     // className="border-b"
                   >
                     <td className="py-4 pl-3 font-bold text-sm text-custom-blue">
-                      {item.id}
+                      {index + 1}
                     </td>
                     <td className="py-4 pr-3 font-bold text-sm text-custom-blue">
                       {item.name}

@@ -5,7 +5,7 @@ const ButtonGoogle = ({ handleClick, isLoading }) => {
   return (
     <div className="flex flex-row items-center justify-center mt-[1.8125rem]">
       <button
-        className="flex justify-center items-center bg-custom-light text-custom-blue font-medium text-base tracking-negative-2 w-full py-4 rounded-2xl active:bg-gray-200 hover:bg-gray-200 transition duration-200 ease-in-out
+        className="flex justify-center items-center bg-custom-light text-custom-blue font-medium text-base tracking-negative-2 w-full py-4 rounded-2xl active:bg-gray-300 hover:bg-gray-200 transition duration-200 ease-in-out
         "
         type="button"
         onClick={handleClick}

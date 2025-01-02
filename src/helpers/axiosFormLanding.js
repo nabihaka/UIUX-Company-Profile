@@ -22,7 +22,7 @@ export const formLanding = async (formData, setLoading) => {
     return true;
   } catch (error) {
     const errorMessage =
-      error.response?.data?.message || "An error occurred. Please try again.";
+      error?.response?.data?.message || "An error occurred. Please try again.";
     toast.error(errorMessage);
     // setLoading(false);
     return false;

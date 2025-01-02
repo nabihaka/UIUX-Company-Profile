@@ -8,6 +8,7 @@ export default {
       },
       colors: {
         "custom-blue": "#2B3674",
+        "custom-1A244B": "#1A244B",
         "custom-purple": "#4318FF",
         "custom-light": "#F4F7FE",
         "custom-gray": "#A3AED0",
@@ -37,6 +38,14 @@ export default {
         "custom-1977F3": "#1977F3",
         "custom-D1D4DC": "#D1D4DC",
         "custom-E9E9E9": "#E9E9E9",
+        "custom-FEEFEE": "#FEEFEE",
+        "custom-FAFCFE": "#FAFCFE",
+        "custom-111C44": "#111C44",
+        "custom-152532": "#152532",
+        "custom-163146": "#163146",
+        "custom-5A7184": "#5A7184",
+        "custom-36B37E": "#36B37E",
+        "custom-E5EAF4": "#E5EAF4",
         "custom-outline-gray": "#E0E5F2",
       },
       letterSpacing: {

@@ -7,15 +7,29 @@ export const logout = async () => {
     axiosHelper.defaults.headers.common["Authorization"] = `Bearer ${token}`;
   }
 
-  try {
-    await axiosHelper.delete("http://127.0.0.1:8000/api/logout");
+  await axiosHelper
+    .delete("http://127.0.0.1:8000/api/logout", {
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then(() => {
+      localStorage.removeItem("token");
 
-    // Remove token from local storage
-    localStorage.removeItem("token");
+      window.location.href = "/login-admin";
+    });
 
-    // Redirect to login page
-    window.location.href = "/login-admin";
-  } catch (error) {
-    console.error("Logout failed:", error);
-  }
+  // try {
+  //   await axiosHelper.delete("http://127.0.0.1:8000/api/logout");
+
+  //   // Remove token from local storage
+  //   localStorage.removeItem("token");
+
+  //   // Redirect to login page
+  //   window.location.href = "/login-admin";
+  // } catch (error) {
+  //   console.error("Logout failed:", error);
+  // }
 };

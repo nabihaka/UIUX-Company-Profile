@@ -14,7 +14,6 @@ export const register = async (formData, setLoading) => {
     })
     .then((response) => {
       const tokenRes = response?.data?.verification_token ?? "";
-      console.log(tokenRes);
       localStorage.setItem("token", tokenRes);
 
       // Jika berhasil, arahkan ke email verification

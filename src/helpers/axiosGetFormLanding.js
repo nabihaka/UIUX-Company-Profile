@@ -2,7 +2,8 @@ import axiosHelper from "./axiosInterceptor";
 import { toast } from "react-toastify";
 // import { useNavigate } from "react-router-dom";
 
-export const fetchFormLanding = async () => {
+export const fetchFormLanding = async (setLoading) => {
+  setLoading(true);
   // await axiosHelper
   //   .get("http://127.0.0.1:8000/api/table", {
   //     headers: {
@@ -26,5 +27,7 @@ export const fetchFormLanding = async () => {
     const errorMessage = error?.response?.data?.message;
     toast.error(errorMessage);
     return;
+  } finally {
+    setLoading(false);
   }
 };

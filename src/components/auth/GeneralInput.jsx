@@ -13,7 +13,7 @@ const GeneralInput = ({ forId, title, type, placeHolder, onChange }) => {
       <input
         type={type}
         id={forId}
-        className="bg-white placeholder-custom-gray font-normal text-base border tracking-negative-2 border-custom-outline-gray pl-6 pr-10 py-[1.125rem] rounded-2xl mt-[0.8125rem] mb-3.5 focus:bg-white focus:outline-none focus:ring-1 focus:ring-custom-purple"
+        className="bg-white placeholder-custom-gray font-normal text-base tracking-negative-2 border border-custom-outline-gray pl-6 pr-10 py-[1.125rem] rounded-2xl mt-[0.8125rem] mb-3.5 focus:bg-white focus:outline-none focus:ring-1 focus:ring-custom-purple"
         placeholder={placeHolder}
         onChange={onChange}
       />
