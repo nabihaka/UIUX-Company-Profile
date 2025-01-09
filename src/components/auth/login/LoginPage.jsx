@@ -1,6 +1,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
 import Loading from "@/assets/svg/loading.svg";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GoogleButton from "@/components/auth/ButtonGoogle.jsx";
@@ -11,6 +13,7 @@ import KeepLoggedIn from "@/components/auth/KeepLoggedIn.jsx";
 import ButtonSubmit from "@/components/auth/ButtonSubmit.jsx";
 import ChangeAuth from "@/components/auth/ChangeAuth.jsx";
 import { login } from "@/helpers/axiosLogin.js";
+// app.use(cors());
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -28,6 +31,15 @@ const LoginPage = () => {
 
     if (tokenFromUrl) {
       localStorage.setItem("token", tokenFromUrl);
+      toast.success("Please check your email inbox and change your password.", {
+        autoClose: 7000,
+      });
+      if (token) {
+        setTimeout(() => {
+          navigate("/dashboard/main");
+        }, 7000);
+      }
+      return;
     }
 
     if (token) {
@@ -55,11 +67,17 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = async () => {
+    // fetch("http://localhost:8000/auth/google", {
+    //   method: "GET",
+    // });
     // await googleLogin(setLoadingGoogle);
+    // const fetchGoogleLogin = await axios.get("/auth/google");
+
     setLoadingGoogle(true);
 
     setTimeout(() => {
       window.location.href = "http://localhost:8000/auth/google";
+      // fetchGoogleLogin();
     }, 200);
   };
 

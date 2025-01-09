@@ -10,7 +10,7 @@ export const createPassword = async (formData, setLoading) => {
       headers: {
         // "Content-Type": "application/json",
         "Content-Type": "multipart/form-data",
-        Authorization: `Bearer " + ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     window.location.href = "/login-admin";

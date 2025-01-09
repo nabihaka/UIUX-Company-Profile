@@ -67,7 +67,7 @@ export const InputTags = ({ tags, setTags }) => {
             onChange={(e) => setItemTag(e.target.value)}
             onKeyDown={handleKeyDown}
             placeholder="Type some tags here..."
-            className="bg-white w-full py-2 font-normal text-base tracking-negative-2 focus:outline-none"
+            className="bg-white w-full py-2 font-normal text-base tracking-negative-2 placeholder:text-gray-400 focus:outline-none"
           />
         </div>
         <p className="font-normal text-sm text-custom-silver tracking-negative-2">

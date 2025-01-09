@@ -1,13 +1,13 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-export const createNewBlog = async (formData, setLoading) => {
+export const updateBlog = async (formData, setLoading) => {
   const token = localStorage.getItem("token");
   setLoading(true);
 
   try {
     const response = await axios.post(
-      "http://localhost:8000/api/posting",
+      "http://127.0.0.1:8000/api/update",
       formData,
       {
         headers: {
@@ -21,7 +21,6 @@ export const createNewBlog = async (formData, setLoading) => {
     setTimeout(() => {
       window.location.href = "/blog-admin";
     }, 3000);
-    // return true;
   } catch (error) {
     const errorMessage = error?.response?.data?.message;
     // toast.error(errorMessage);
@@ -37,9 +36,6 @@ export const createNewBlog = async (formData, setLoading) => {
     } else {
       toast.error(errorMessage);
     }
-    // return false;
-    // console.error(error?.response);
-    // console.error(errorMessage);
   } finally {
     setLoading(false);
   }

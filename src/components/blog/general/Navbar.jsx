@@ -12,7 +12,11 @@ const Navbar = () => {
             <a
               key={list.id}
               href={list.path}
-              className="font-normal text-base text-white tracking-negative-2 cursor-pointer"
+              className={`text-base text-white tracking-negative-2 cursor-pointer ${
+                list.name === "Blog"
+                  ? "-translate-y-1 font-bold"
+                  : "font-normal "
+              }`}
             >
               {list.name}
             </a>

@@ -1,8 +1,22 @@
 import * as React from "react";
 import { RxCross2 } from "react-icons/rx";
 import { MdDeleteOutline } from "react-icons/md";
+import { deleteBlog } from "@/helpers/axiosDeleteBlog";
 
-export const DeleteConfirm = ({ open, onClose }) => {
+export const DeleteConfirm = ({
+  open,
+  onClose,
+  setIsOpen,
+  blogId,
+  setBlogData,
+  isLoading,
+  setLoading,
+  loadingImage,
+}) => {
+  const handleDeleteBlog = async () => {
+    await deleteBlog(setLoading, setIsOpen, blogId, setBlogData);
+  };
+
   return (
     <div
       onClick={onClose}
@@ -31,9 +45,14 @@ export const DeleteConfirm = ({ open, onClose }) => {
         <div className="pt-4 flex gap-3 items-center">
           <button
             type="button"
+            onClick={handleDeleteBlog}
             className="bg-red-500 w-full py-2 text-base font-normal text-white tracking-negative-2 rounded-lg shadow-lg hover:bg-red-600 active:bg-red-700 transition duration-200 ease-in-out"
           >
-            Delete
+            {isLoading ? (
+              <img src={loadingImage} className="h-6 mx-auto animate-spin" />
+            ) : (
+              "Delete"
+            )}
           </button>
           <button
             type="button"

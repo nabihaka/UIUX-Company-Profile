@@ -1,0 +1,17 @@
+export const CATEGORY_LISTS = [
+  { id: 1, name: "Nature" },
+  { id: 2, name: "Technology" },
+  { id: 3, name: "Science" },
+  { id: 4, name: "Politics" },
+  { id: 5, name: "Economy" },
+  { id: 6, name: "Sports" },
+  { id: 7, name: "Entertainment" },
+  { id: 8, name: "Health" },
+  { id: 9, name: "Education" },
+  { id: 10, name: "Lifestyle" },
+  { id: 11, name: "World News" },
+  { id: 12, name: "Crime" },
+  { id: 13, name: "Culture & History" },
+  { id: 14, name: "Environment" },
+  { id: 15, name: "Travel" },
+];

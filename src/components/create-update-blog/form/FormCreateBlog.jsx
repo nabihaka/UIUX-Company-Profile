@@ -8,11 +8,17 @@ import { InputCategory } from "./InputCategory";
 import { ButtonSubmit } from "./ButtonSubmit";
 import { createNewBlog } from "@/helpers/axiosCreateNewBlog";
 import CKEditorComponent from "@/components/ckeditor/CKEditorComponent.jsx";
+import LoadingImg from "@/assets/svg/loading.svg";
 // import { Title } from "ckeditor5";
 
 export const FormCreateBlog = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(false);
+  const [image, setImage] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const fileInputRef = useRef(null);
 
   useEffect(() => {
     if (!token) {
@@ -28,10 +34,7 @@ export const FormCreateBlog = () => {
     category: "",
   });
 
-  const [image, setImage] = useState(null);
-  const [preview, setPreview] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-  const fileInputRef = useRef(null);
+  console.log(dataCreateNewBlog);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -75,17 +78,20 @@ export const FormCreateBlog = () => {
   //   setDataCreateNewBlog((prev) => ({ ...prev, tags: newTags }));
   // };
 
-  const [loading, setLoading] = useState(false);
   const handleCreateNewBlog = async () => {
     const formData = new FormData();
 
     formData.append("image", image);
     formData.append("title", dataCreateNewBlog.title);
-    formData.append("tags", dataCreateNewBlog.tags);
+    // formData.append("tags", dataCreateNewBlog.tags);
     formData.append("message", dataCreateNewBlog.message);
     formData.append("category", dataCreateNewBlog.category);
 
-    await createNewBlog(setLoading, formData);
+    await createNewBlog(formData, setLoading);
+    // if (isSuccess) {
+    //   window.location.href = "/blog-admin";
+    // }
+    // console.log([...formData.entries()]);
   };
 
   return (
@@ -103,6 +109,7 @@ export const FormCreateBlog = () => {
             inputRef={fileInputRef}
           />
           <InputTitle
+            // value={dataCreateNewBlog.title}
             onChange={(e) =>
               setDataCreateNewBlog((prev) => ({
                 ...prev,
@@ -118,7 +125,12 @@ export const FormCreateBlog = () => {
               setDataCreateNewBlog((prev) => ({ ...prev, tags: newTags }))
             }
           />
-          <InputCategory />
+          <InputCategory
+            // value={dataCreateNewBlog.category}
+            setCategory={(category) =>
+              setDataCreateNewBlog((prev) => ({ ...prev, category }))
+            }
+          />
         </div>
       </div>
       <div className="space-y-2">
@@ -126,16 +138,19 @@ export const FormCreateBlog = () => {
           Content<span className="text-custom-purple">*</span>
         </label>
         <CKEditorComponent
-          onChange={
-            (data = setDataCreateNewBlog((prev) => ({
-              ...prev,
-              message: data,
-            })))
-          }
+          onChange={(event, editor) => {
+            const data = editor.getData();
+            setDataCreateNewBlog((prev) => ({ ...prev, message: data }));
+          }}
         />
       </div>
       <div className="flex justify-end">
-        <ButtonSubmit text="Posting" />
+        <ButtonSubmit
+          text="Posting"
+          isLoading={loading}
+          loadingImage={LoadingImg}
+          onClick={handleCreateNewBlog}
+        />
       </div>
     </div>
   );

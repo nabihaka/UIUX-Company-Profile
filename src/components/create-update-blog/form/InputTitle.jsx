@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export const InputTitle = ({ onChange }) => {
+export const InputTitle = ({ value, onChange }) => {
   return (
     <div className="flex flex-col gap-2">
       <label
@@ -12,9 +12,10 @@ export const InputTitle = ({ onChange }) => {
       <input
         id="title"
         type="text"
+        value={value}
         placeholder="E.g. President Prabowo's Visit to America"
         onChange={onChange}
-        className="bg-white p-2 py-4 font-normal text-base tracking-negative-2 border border-custom-outline-gray rounded-xl focus:outline-none focus:ring-1 focus:ring-custom-purple"
+        className="bg-white p-2 py-4 font-normal text-base tracking-negative-2 border border-custom-outline-gray rounded-xl placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-custom-purple"
       />
     </div>
   );
