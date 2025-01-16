@@ -25,10 +25,10 @@ const HomeSection = () => {
           <div className="w-full xl:h-[282px] relative">
             <img
               src={Vector587}
-              className="absolute lg:right-0 lg:top-44 xl:top-0 xl:right-[85px]"
+              className="absolute lg:right-0 lg:top-44 xl:top-0 xl:right-[77px]"
             />
             <div
-              className="absolute bg-white w-[13.3125rem] lg:-right-12 lg:top-60 xl:right-9 xl:top-[64px] px-[0.875rem] py-3 rounded-2xl shadow-xl"
+              className="absolute bg-white w-[13.3125rem] lg:-right-12 lg:top-60 xl:right-7 xl:top-[64px] px-[0.875rem] py-3 rounded-2xl shadow-xl"
               style={{ boxShadow: "0 1.25rem 1.875rem rgba(0, 0, 0, 0.06)" }}
             >
               <div className="flex flex-col items-center">
@@ -55,14 +55,14 @@ const HomeSection = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center border lg:min-w-[601px] xl:min-w-[720px]">
+          <div className="flex flex-col justify-center items-center lg:min-w-[601px] xl:min-w-[890px]">
             <span className="capitalize font-normal lg:text-sm xl:text-base text-custom-516371 mb-4">
               designing with us
             </span>
             <h1 className="capitalize font-bold lg:text-6xl xl:text-7xl text-center text-custom-blue mb-6">
-              the beloved design company in konoha
+              the beloved and trusted design company
             </h1>
-            <p className="font-normal lg:text-sm xl:text-base text-center text-custom-516371 lg:mx-[72px] xl:mx-[6.0625rem] mb-6">
+            <p className="font-normal lg:text-sm xl:text-base text-center text-custom-516371 lg:mx-[72px] xl:mx-[180px] mb-6">
               With us achieving dreams in building your products, together say
               “Yes” to extraordinary designs
             </p>

@@ -16,6 +16,8 @@ import NewPassword from "@/pages/auth/NewPassword.jsx";
 // import EmailVerificationPage from "@/components/auth/verification/EmailVerificationPage.jsx";
 import EmailVerification from "@/pages/auth/EmailVerification.jsx";
 import SuccessfulVerification from "@/pages/auth/SuccessfulVerification.jsx";
+import BlogDetailAdmin from "@/pages/blog/BlogDetailAdmin.jsx";
+import BlogDetailUser from "@/pages/blog/BlogDetailUser.jsx";
 import Dashboard from "@/pages/dashboard/dashboard.jsx";
 // import DashboardLayout from "@/layout/Dashboard.jsx";
 // import Home from "./pages/dashboard/home.jsx";
@@ -89,6 +91,16 @@ const router = createBrowserRouter([
   {
     path: "/create-new-password",
     element: <NewPassword />,
+  },
+
+  {
+    path: "/blog-detail",
+    element: <BlogDetailAdmin />,
+  },
+
+  {
+    path: "/blog/:slug",
+    element: <BlogDetailUser />,
   },
 
   // Private routes

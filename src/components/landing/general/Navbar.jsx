@@ -80,7 +80,7 @@ const Navbar = () => {
         showNavbar ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex border justify-between items-center lg:w-[958px] xl:w-[1152px]">
+      <div className="flex justify-between items-center lg:w-[958px] xl:w-[1152px]">
         <img
           src={HorizonLogo}
           className="lg:scale-95 xl:scale-100 lg:-ml-[5px] xl:ml-0"

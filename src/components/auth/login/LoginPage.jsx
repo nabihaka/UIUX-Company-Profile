@@ -44,7 +44,6 @@ const LoginPage = () => {
 
     if (token) {
       navigate("/dashboard/main");
-      // window.location.href = "dashboard/main";
     }
   }, []);
 

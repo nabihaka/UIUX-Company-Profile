@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 // import axios from "axios";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineRemoveRedEye, MdDeleteOutline } from "react-icons/md";
+import DOMPurify from "dompurify";
+import truncate from "html-truncate";
 import { fetchBlogData } from "@/helpers/axiosGetBlogData";
 import { DeleteConfirm } from "../modal/DeleteConfirm";
 import LoadingImg from "@/assets/svg/loading.svg";
@@ -25,6 +27,29 @@ const Table = () => {
     return text;
   };
 
+  // const truncateHtml = (html, maxLength) => {
+  //   const doc = new DOMParser().parseFromString(html, "text/html");
+  //   let textContent = doc.body.textContent || doc.body.innerText;
+
+  //   // Memotong teks setelah dihitung panjangnya
+  //   if (textContent.length > maxLength) {
+  //     textContent = textContent.substring(0, maxLength) + "...";
+  //   }
+
+  //   // Mengembalikan HTML yang sudah dipotong
+  //   const truncatedDoc = new DOMParser().parseFromString(
+  //     textContent,
+  //     "text/html"
+  //   );
+  //   return truncatedDoc.body.innerHTML;
+  // };
+
+  const truncateHtml = (html, maxLength) => {
+    return truncate(html, maxLength, { ellipsis: "..." });
+  };
+
+  // const truncatedMessage =
+
   useEffect(() => {
     const getData = async () => {
       const data = await fetchBlogData(setFetchLoading);
@@ -34,7 +59,8 @@ const Table = () => {
       // else {
       //   console.log(data);
       // }
-      console.log(data);
+      // console.log(data);
+      // console.log(blogData);
     };
 
     getData();
@@ -52,6 +78,12 @@ const Table = () => {
     localStorage.setItem("blogId", id);
 
     window.location.href = "/update-blog";
+  };
+
+  const handleToShowBlog = (id) => {
+    localStorage.setItem("blogId", id);
+
+    window.location.href = "/blog-detail";
   };
 
   return (
@@ -86,12 +118,19 @@ const Table = () => {
                   {truncateText(data.title, 10)}
                 </td>
                 <td className="pr-9 py-3 align-top text-justify">
-                  {truncateText(data.message, 50)}
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: DOMPurify.sanitize(
+                        truncateHtml(data.message, 300)
+                      ),
+                    }}
+                  />
                 </td>
                 <td className="pr-9 py-3">
                   <div className="flex gap-4 items-center">
                     <button
                       type="button"
+                      onClick={() => handleToShowBlog(data.id)}
                       className="bg-green-500 group relative w-9 h-9 flex rounded-lg hover:bg-green-600 active:bg-green-700 transition duration-200 ease-in-out"
                     >
                       <MdOutlineRemoveRedEye className="mx-auto my-auto font-bold text-xl text-white" />

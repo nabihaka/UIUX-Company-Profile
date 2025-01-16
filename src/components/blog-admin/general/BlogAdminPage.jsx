@@ -10,6 +10,8 @@ const BlogAdminPage = () => {
     if (!token) {
       window.history.back();
     }
+
+    // if (window.location.pathname !==)
   }, [token]);
 
   return (

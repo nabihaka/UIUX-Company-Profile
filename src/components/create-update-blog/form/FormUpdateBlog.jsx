@@ -50,6 +50,7 @@ export const FormUpdateBlog = () => {
           setPreview(blogData.imageurl);
         }
       }
+      console.log(blogData);
     };
 
     getBlogData();
@@ -59,7 +60,11 @@ export const FormUpdateBlog = () => {
     if (window.location.pathname !== "/update-blog") {
       localStorage.removeItem("blogId");
     }
-  }, [location.pathname]);
+
+    if (!blogId) {
+      navigate("/blog-admin");
+    }
+  }, [location.pathname, blogId]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];

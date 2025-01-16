@@ -1,17 +1,17 @@
-import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const privateRoutes = ({ children }) => {
-  const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
-  if (!token) {
-    // Jika tidak ada token, redirect ke halaman login menggunakan window.location.href
-    window.location.href = "/login-admin";
-    return null; // Pastikan komponen tidak render sebelum redirect
-  }
+  useEffect(() => {
+    if (!token) {
+      // Jika tidak ada token, redirect ke halaman login menggunakan window.location.href
+      window.location.href = "/login-admin";
+    }
+  }, [token]);
 
   // Jika ada token, render komponen privat
-  return children;
+  return token ? children : null;
 };
 
 export default privateRoutes;
