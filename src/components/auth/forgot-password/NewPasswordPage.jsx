@@ -5,7 +5,7 @@ import HeaderForm from "@/components/auth/HeaderForm.jsx";
 import GeneralInput from "@/components/auth/GeneralInput.jsx";
 import PasswordInput from "@/components/auth/PasswordInput.jsx";
 import ButtonSubmit from "@/components/auth/ButtonSubmit.jsx";
-import Loading from "@/assets/svg/Loading.svg";
+import Loading from "@/assets/svg/loading.svg";
 import LogoHorizon from "@/assets/svg/horizon_logo.svg";
 
 const NewPasswordPage = () => {
