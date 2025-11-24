@@ -1,7 +1,7 @@
 import * as React from "react";
 import GoogleLogo from "@/assets/svg/google_logo.svg";
 
-const ButtonGoogle = ({ handleClick, isLoading }) => {
+const ButtonGoogle = ({ handleClick, isLoading, text }) => {
   return (
     <div className="flex flex-row items-center justify-center mt-[1.8125rem]">
       <button
@@ -15,7 +15,8 @@ const ButtonGoogle = ({ handleClick, isLoading }) => {
         ) : (
           <div className="flex gap-2">
             <img className="" src={GoogleLogo} />
-            Sign in with Google
+            {/* Sign in with Google */}
+            {text}
           </div>
         )}
       </button>

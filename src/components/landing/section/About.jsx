@@ -25,7 +25,7 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="pt-20">
-      <div className="w-max mx-auto border border-indigo-500 flex flex-col space-y-[7.5rem] items-center">
+      <div className="w-max mx-auto flex flex-col space-y-[7.5rem] items-center">
         <div className="flex items-center space-x-5">
           <div className="lg:h-[245px] xl:h-[300px] py-[2.9375rem] bg-custom-purple relative flex rounded-3xl">
             <div className="absolute lg:-bottom-[56px] xl:-bottom-11 w-full lg:h-[76%] xl:h-[70%] bg-gradient-to-b from-white/20 to-transparent rounded-t-full"></div>
@@ -64,8 +64,7 @@ const AboutSection = () => {
                   </span>
                 </div>
                 <span className="font-normal text-justify lg:text-xs xl:text-base text-custom-A7ABB6">
-                  Lörem ipsum astrobel sar direlig. Kronde est konfoni med
-                  kelig.
+                  We have trusted partners to support our projects
                 </span>
               </div>
               <div className="flex items-center space-x-10">
@@ -96,9 +95,9 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        <div className="border lg:w-[958px] xl:w-[1152px] flex justify-between items-center">
+        <div className="lg:w-[958px] xl:w-[1152px] flex justify-between items-center">
           <div className="flex justify-start items-center">
-            <div className="flex flex-col border lg:max-w-[340px] xl:max-w-md">
+            <div className="flex flex-col lg:max-w-[340px] xl:max-w-md">
               <span className="capitalize font-normal lg:text-sm xl:text-base text-custom-A7ABB6 mb-4">
                 why choose us
               </span>
@@ -106,8 +105,8 @@ const AboutSection = () => {
                 Fast Work is our focus
               </span>
               <p className="font-normal lg:text-sm xl:text-base text-justify text-custom-A7ABB6">
-                Lörem ipsum astrobel sar direlig. Kronde est konfoni med kelig.
-                Terabel pov astrobel sar direlig.
+                We always work quickly on projects, we know you like fast
+                progress, if it can be fast why not?
               </p>
             </div>
           </div>
@@ -211,7 +210,7 @@ const AboutSection = () => {
           </div>
         </div>
         <div className="lg:w-[958px] xl:w-[1152px] flex justify-between items-center mb-[20px]">
-          <div className="bg-transparent border lg:w-[505px] xl:w-[35.625rem] lg:h-[415px] xl:h-[28.1875rem] relative">
+          <div className="bg-transparent lg:w-[505px] xl:w-[35.625rem] lg:h-[415px] xl:h-[28.1875rem] relative">
             <div className="bg-custom-F2F2F2 lg:w-[300px] lg:h-[300px] xl:w-[20.75rem] xl:h-[20.75rem] absolute right-0 top-0 rounded-full">
               <img
                 src={Person2}
@@ -241,7 +240,7 @@ const AboutSection = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col justify-start border lg:max-w-sm xl:max-w-[480px]">
+          <div className="flex flex-col justify-start lg:max-w-sm xl:max-w-[480px]">
             <span className="capitalize font-normal lg:text-sm xl:text-base text-custom-A7ABB6 mb-4">
               who we are
             </span>
@@ -250,8 +249,8 @@ const AboutSection = () => {
             </span>
             <div className="lg:mr-3 xl:mr-10 mb-8">
               <span className="font-normal lg:text-sm xl:text-base text-justify text-custom-A7ABB6">
-                Lörem ipsum astrobel sar direlig. Kronde est konfoni med kelig.
-                Terabel pov astrobel sar direlig.
+                Many people have trusted our services and brought their business
+                to the next level.
               </span>
             </div>
             <button

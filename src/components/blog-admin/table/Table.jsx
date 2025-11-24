@@ -1,21 +1,25 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 // import axios from "axios";
 import { FaRegEdit } from "react-icons/fa";
 import { MdOutlineRemoveRedEye, MdDeleteOutline } from "react-icons/md";
 import DOMPurify from "dompurify";
 import truncate from "html-truncate";
+import { LuArrowUpDown } from "react-icons/lu";
 import { fetchBlogData } from "@/helpers/axiosGetBlogData";
 import { DeleteConfirm } from "../modal/DeleteConfirm";
 import LoadingImg from "@/assets/svg/loading.svg";
 import LoadingPurple from "@/assets/svg/loading_purple.svg";
 
-const Table = () => {
+export const Table = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [fetchLoading, setFetchLoading] = useState(false);
   const [blogData, setBlogData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBlogId, setSelectedBlogId] = useState(null);
+  const [isDescending, setIsDescending] = useState(true);
   // const [blogId, setBlogId] = useState(null);
   const idBlog = localStorage.getItem("blogId");
 
@@ -26,23 +30,6 @@ const Table = () => {
     }
     return text;
   };
-
-  // const truncateHtml = (html, maxLength) => {
-  //   const doc = new DOMParser().parseFromString(html, "text/html");
-  //   let textContent = doc.body.textContent || doc.body.innerText;
-
-  //   // Memotong teks setelah dihitung panjangnya
-  //   if (textContent.length > maxLength) {
-  //     textContent = textContent.substring(0, maxLength) + "...";
-  //   }
-
-  //   // Mengembalikan HTML yang sudah dipotong
-  //   const truncatedDoc = new DOMParser().parseFromString(
-  //     textContent,
-  //     "text/html"
-  //   );
-  //   return truncatedDoc.body.innerHTML;
-  // };
 
   const truncateHtml = (html, maxLength) => {
     return truncate(html, maxLength, { ellipsis: "..." });
@@ -59,7 +46,7 @@ const Table = () => {
       // else {
       //   console.log(data);
       // }
-      // console.log(data);
+      console.log(data);
       // console.log(blogData);
     };
 
@@ -72,6 +59,10 @@ const Table = () => {
     }
   }, [idBlog]);
 
+  const cleanHtml = (html) => {
+    return html.replace(/<figure[^>]*>.*?<\/figure>/gis, "");
+  };
+
   // const handleDeleteBlog = async (id) => {};
 
   const handleToUpdateBlog = (id) => {
@@ -80,48 +71,73 @@ const Table = () => {
     window.location.href = "/update-blog";
   };
 
-  const handleToShowBlog = (id) => {
+  const handleToShowBlog = (id, slug) => {
     localStorage.setItem("blogId", id);
 
-    window.location.href = "/blog-detail";
+    // window.location.href = {`/blog-detail/`};
+    navigate(`/blog-detail/${slug}`);
   };
 
+  const toggleSortOrder = () => {
+    setIsDescending((prev) => !prev);
+  };
+
+  const sortedBlogData = [...blogData].sort((a, b) =>
+    isDescending ? b.id - a.id : a.id - b.id
+  );
+
   return (
-    <div className="bg-white px-4 py-2 rounded-xl transition">
+    <div className="bg-white w-[1400px] px-8 py-[1.625rem] space-y-5 rounded-xl transition">
+      <div className="w-full flex justify-between items-center">
+        <h2 className="font-bold text-2xl text-custom-blue tracking-negative-2">
+          Blog List
+        </h2>
+        {/* ini adalah button untuk pengurutan */}
+        <button
+          onClick={toggleSortOrder}
+          className="w-10 h-10 bg-custom-light flex justify-center items-center rounded-lg transition duration-200 ease-in-out hover:bg-gray-200 active:bg-gray-300"
+        >
+          <LuArrowUpDown className="text-lg text-custom-purple" />
+        </button>
+      </div>
       {fetchLoading ? (
         <div className="w-full flex justify-center items-center">
           <img src={LoadingPurple} className="animate-spin" />
+        </div>
+      ) : sortedBlogData.length === 0 ? (
+        <div className="font-medium text-center text-lg text-custom-gray">
+          There is no data available
         </div>
       ) : (
         <table className="w-full table-fixed border-collapse">
           <thead className="border-b-2">
             <tr>
-              <th className="py-3 text-left font-bold text-base tracking-negative-2 w-12">
+              <th className="py-3 text-left font-bold text-md tracking-negative-2 w-12">
                 No
               </th>
-              <th className="py-3 text-left font-bold text-base tracking-negative-2 w-96">
+              <th className="py-3 text-left font-bold text-md tracking-negative-2 w-80">
                 Title
               </th>
-              <th className="py-3 text-left font-bold text-base tracking-negative-2">
+              <th className="py-3 text-left font-bold text-md tracking-negative-2">
                 Desc
               </th>
-              <th className="py-3 text-left font-bold text-base tracking-negative-2 w-56">
+              <th className="py-3 text-left font-bold text-md tracking-negative-2 w-56">
                 Action
               </th>
             </tr>
           </thead>
           <tbody>
-            {blogData.map((data, index) => (
+            {sortedBlogData.map((data, index) => (
               <tr key={data.id} className="border-b">
                 <td className="pr-9 py-3 align-top">{index + 1}</td>
                 <td className="pr-9 py-3 align-top text-justify">
-                  {truncateText(data.title, 10)}
+                  {truncateText(data.title, 20)}
                 </td>
                 <td className="pr-9 py-3 align-top text-justify">
                   <div
                     dangerouslySetInnerHTML={{
                       __html: DOMPurify.sanitize(
-                        truncateHtml(data.message, 300)
+                        truncateHtml(cleanHtml(data.message), 300)
                       ),
                     }}
                   />
@@ -130,7 +146,7 @@ const Table = () => {
                   <div className="flex gap-4 items-center">
                     <button
                       type="button"
-                      onClick={() => handleToShowBlog(data.id)}
+                      onClick={() => handleToShowBlog(data.id, data.slug)}
                       className="bg-green-500 group relative w-9 h-9 flex rounded-lg hover:bg-green-600 active:bg-green-700 transition duration-200 ease-in-out"
                     >
                       <MdOutlineRemoveRedEye className="mx-auto my-auto font-bold text-xl text-white" />
@@ -181,5 +197,3 @@ const Table = () => {
     </div>
   );
 };
-
-export default Table;

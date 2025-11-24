@@ -19,7 +19,7 @@ export const NAVBAR_LANDING_LINKS = [
   },
   {
     id: 4,
-    name: "Portofolio",
+    name: "Portfolio",
     path: "/#portofolio",
     sectionId: "portofolio",
   },

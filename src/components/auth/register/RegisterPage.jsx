@@ -17,6 +17,7 @@ const RegisterPage = () => {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [loadingGoogle, setLoadingGoogle] = useState(false);
 
   const [data, setData] = useState({
     name: "",
@@ -56,6 +57,15 @@ const RegisterPage = () => {
       });
   }, []);
 
+  const handleGoogleLogin = async () => {
+    setLoadingGoogle(true);
+
+    setTimeout(() => {
+      window.location.href = "http://localhost:8000/auth/google";
+      // fetchGoogleLogin();
+    }, 200);
+  };
+
   const handleFetchCities = (provinceId) => {
     axios
       .get(`http://127.0.0.1:8000/api/cities?regency_id=${provinceId}`)
@@ -81,7 +91,11 @@ const RegisterPage = () => {
             title="Sign Up"
             description="Enter your email and password to sign up!"
           />
-          <GoogleButton />
+          <GoogleButton
+            isLoading={loadingGoogle}
+            handleClick={handleGoogleLogin}
+            text="Sign up with Google"
+          />
           <div className="w-full flex flex-row justify-center items-center my-[1.8125rem]">
             <span className="text-custom-gray text-base tracking-negative-2">
               or
@@ -175,14 +189,16 @@ const RegisterPage = () => {
               }
             />
             {/* <--------------------------KEEP ME LOGGED IN---------------------------> */}
-            <KeepLoggedIn />
+            {/* <KeepLoggedIn /> */}
             {/* <--------------------------SUBMIT BUTTON---------------------------> */}
-            <ButtonSubmit
-              isLoading={loading}
-              loadingImg={Loading}
-              title="Sign Up"
-              handleSubmit={handleSubmit}
-            />
+            <div className="mt-3">
+              <ButtonSubmit
+                isLoading={loading}
+                loadingImg={Loading}
+                title="Sign Up"
+                handleSubmit={handleSubmit}
+              />
+            </div>
             {/* <--------------------------CHANGE AUTH---------------------------> */}
             <ChangeAuth
               question="Already have an account?"

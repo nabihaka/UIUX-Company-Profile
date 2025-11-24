@@ -7,7 +7,8 @@ import {
   FaYoutube,
   FaTwitter,
 } from "react-icons/fa";
-import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+// import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+import LogoHorizon from "@/assets/png/horizonui_logo.png";
 import Frame79 from "@/assets/svg/frame_79.svg";
 
 const Footer = () => {
@@ -20,7 +21,7 @@ const Footer = () => {
             <div className="w-full px-10 py-[46px] absolute flex justify-between items-center">
               <div className="w-[60%] flex flex-col items-start">
                 <h3 className="font-bold lg:text-[28px] text-[2rem] text-white">
-                  Work Together with Horizon Free
+                  Work Together with HorizonUI
                 </h3>
                 <p className="font-extralight lg:text-sm xl:text-base text-white">
                   Our company is a very professional company, with friendly
@@ -35,12 +36,9 @@ const Footer = () => {
               </button>
             </div>
           </div>
-          <div className="w-full border flex justify-between mb-12">
+          <div className="w-full flex justify-between mb-12">
             <div className="w-[25%] flex flex-col items-start space-y-7">
-              <img
-                src={HorizonLogo}
-                className="lg:scale-95 xl:scale-100 relative lg:-left-[4.5px] xl:left-0"
-              />
+              <img src={LogoHorizon} className="h-10" />
               <p className="font-extralight text-justify lg:text-sm xl:text-base text-custom-A7ABB6">
                 With us achieving dreams in building your products, together say
                 “Yes” to extraordinary designs.
@@ -84,7 +82,7 @@ const Footer = () => {
                 </span>
               </div>
             </div>
-            <div className="lg:w-[23%] xl:w-[24%] border flex flex-col items-start space-y-6">
+            <div className="lg:w-[23%] xl:w-[24%] flex flex-col items-start space-y-6">
               <span className="font-bold text-bold lg:text-sm xl:text-base">
                 Contact
               </span>
@@ -97,7 +95,7 @@ const Footer = () => {
               <div className="flex items-baseline space-x-4">
                 <MdEmail className="lg:scale-[140%] xl:scale-150" />
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  horizon.free@gmail.com
+                  horizon.ui@gmail.com
                 </span>
               </div>
               <div className="flex items-baseline space-x-4">
@@ -108,7 +106,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="w-full flex border justify-between items-center">
+          <div className="w-full flex justify-between items-center">
             <div className="flex space-x-7 items-center lg:ml-[2.1px] xl:ml-[2.5px]">
               <FaInstagram className="lg:scale-[140%] xl:scale-150" />
               <FaWhatsapp className="lg:scale-[140%] xl:scale-150" />
@@ -117,7 +115,7 @@ const Footer = () => {
               <FaTwitter className="lg:scale-[140%] xl:scale-150" />
             </div>
             <span className="font-extralight text-sm text-custom-A7ABB6">
-              © 2024 HorizonFree. All rights reserved.
+              © 2024 HorizonUI. All rights reserved.
             </span>
           </div>
         </div>

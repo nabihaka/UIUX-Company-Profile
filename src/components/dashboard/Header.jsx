@@ -1,10 +1,5 @@
 import * as React from "react";
 import { useLocation } from "react-router-dom";
-import { MdNotificationsNone } from "react-icons/md";
-import { FaMoon } from "react-icons/fa";
-import { IoMdInformationCircleOutline } from "react-icons/io";
-import { FiSearch } from "react-icons/fi";
-import EthIcon from "@/assets/svg/eth_icon.svg";
 
 const Header = () => {
   const location = useLocation();
@@ -21,7 +16,9 @@ const Header = () => {
       case "/dashboard/profile":
         return "Pages / Profile";
       case "/dashboard/client":
-        return "Pages / Client";
+        return "Dashboard / Client";
+      case "/dashboard/blog-admin":
+        return "Dashboard / Blog ";
       default:
         return "Default Title";
     }
@@ -41,67 +38,29 @@ const Header = () => {
         return "Profile";
       case "/dashboard/client":
         return "Client";
+      case "/dashboard/blog-admin":
+        return "Blog";
       default:
         return "Default Title";
     }
   };
 
   const renderCustomElement = () => {
-    if (location.pathname === "/dashboard/nftmarketplace") {
+    if (location.pathname === "/dashboard/blog-admin") {
       return (
-        <div className="flex justify-between items-center w-[559px] h-[61px] p-[10px] bg-white rounded-full">
-          <div className="flex space-x-[10px]">
-            <div className="relative">
-              <input
-                type="search"
-                placeholder="Search"
-                className="w-[223px] bg-custom-light pl-12 pr-6 py-[10px] placeholder-custom-8F9BBA text-custom-blue font-normal text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-custom-blue"
-              ></input>
-              <div className="absolute inset-y-3.5 end-44 top-[30%] left-[9%]">
-                <FiSearch className="text-custom-blue" />
-              </div>
-            </div>
-            <div className="bg-custom-light w-[117px] flex justify-between items-center rounded-full pl-[6px] pr-[13px] py-[6px]">
-              <img src={EthIcon} />
-              <span className="font-bold text-sm text-custom-blue tracking-negative-2">
-                1,924 ETH
-              </span>
-            </div>
-          </div>
-          <div className="w-full ml-[25px] flex justify-between items-center">
-            <MdNotificationsNone className="scale-150 text-custom-gray" />
-            <FaMoon className="scale-110 text-custom-gray" />
-            <IoMdInformationCircleOutline className="scale-150 text-custom-gray" />
-            <div className="w-8 h-8 rounded-full bg-custom-blue"></div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div className="flex justify-between items-center w-[422px] h-[61px] p-[10px] bg-white rounded-full">
-          <div className="relative">
-            <input
-              type="search"
-              placeholder="Search"
-              className="w-[214px] bg-custom-light pl-12 pr-6 py-[10px] placeholder-custom-8F9BBA text-custom-blue font-normal text-sm rounded-full focus:outline-none focus:ring-1 focus:ring-custom-blue"
-            ></input>
-            <div className="absolute inset-y-3.5 end-44 top-[30%] left-[9%]">
-              <FiSearch className="text-custom-blue" />
-            </div>
-          </div>
-          <div className="w-full ml-6 flex justify-between items-center">
-            <MdNotificationsNone className="scale-150 text-custom-gray" />
-            <FaMoon className="scale-110 text-custom-gray" />
-            <IoMdInformationCircleOutline className="scale-150 text-custom-gray" />
-            <div className="w-8 h-8 rounded-full bg-custom-blue"></div>
-          </div>
-        </div>
+        <button
+          type="button"
+          onClick={() => (window.location.href = "/create-new-blog")}
+          className="px-6 py-3 bg-custom-purple font-medium text-base text-white tracking-negative-2 rounded-xl hover:bg-custom-blue active:bg-custom-1A244B transition duration-200 ease-in-out"
+        >
+          Create blog
+        </button>
       );
     }
   };
 
   return (
-    <div className="w-screen bg-custom-light ml-[18.125rem] pl-[1.25rem] pt-12 pb-5 pr-[1.25rem]">
+    <div className="w-full bg-custom-light pl-[310px] pt-12 pr-5">
       <div className="w-full flex flex-col justify-start">
         <p className="font-medium text-custom-silver text-base">{pathPage()}</p>
         <div className="w-full flex justify-between items-center">

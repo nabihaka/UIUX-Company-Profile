@@ -1,10 +1,11 @@
 import * as React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { logout } from "@/helpers/axiosLogout.js";
+import { LogoutConfirm } from "./modal/LogoutConfirm";
 import { FiLogOut } from "react-icons/fi";
 import Loading from "@/assets/svg/loading.svg";
 import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+import LogoHorizon from "@/assets/png/horizonui_logo.png";
 import ActiveHomeIcon from "@/assets/svg/active_home_icon.svg";
 import ActiveNftIcon from "@/assets/svg/active_nft_icon.svg";
 import ActiveTablesIcon from "@/assets/svg/active_tables_icon.svg";
@@ -23,6 +24,7 @@ import { TiHome } from "react-icons/ti";
 import { MdOutlineShoppingCart } from "react-icons/md";
 
 const Sidebar = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(0);
   const handleLinkClick = (index) => {
     setActiveLink(index);
@@ -30,71 +32,65 @@ const Sidebar = () => {
   const [loading, setLoading] = useState(false);
 
   const SIDEBAR_LINKS = [
+    // {
+    //   id: 1,
+    //   path: "/dashboard/main",
+    //   name: "Dashboard",
+    //   active: ActiveHomeIcon,
+    //   inactive: InactiveHomeIcon,
+    // },
+    // {
+    //   id: 2,
+    //   path: "/dashboard/nftmarketplace",
+    //   name: "Nft Marketplace",
+    //   active: ActiveNftIcon,
+    //   inactive: InactiveNftIcon,
+    // },
+    // {
+    //   id: 3,
+    //   path: "/dashboard/tables",
+    //   name: "Tables",
+    //   active: ActiveTablesIcon,
+    //   inactive: InactiveTablesIcon,
+    // },
+    // {
+    //   id: 4,
+    //   path: "/dashboard/kanban",
+    //   name: "Kanban",
+    //   active: ActiveKanbanIcon,
+    //   inactive: InactiveKanbanIcon,
+    // },
+    // {
+    //   id: 5,
+    //   path: "/dashboard/profile",
+    //   name: "Profile",
+    //   active: ActiveProfileIcon,
+    //   inactive: InactiveProfileIcon,
+    // },
     {
       id: 1,
-      path: "/dashboard/main",
-      name: "Dashboard",
-      active: ActiveHomeIcon,
-      inactive: InactiveHomeIcon,
-    },
-    {
-      id: 2,
-      path: "/dashboard/nftmarketplace",
-      name: "Nft Marketplace",
-      active: ActiveNftIcon,
-      inactive: InactiveNftIcon,
-    },
-    {
-      id: 3,
-      path: "/dashboard/tables",
-      name: "Tables",
-      active: ActiveTablesIcon,
-      inactive: InactiveTablesIcon,
-    },
-    {
-      id: 4,
-      path: "/dashboard/kanban",
-      name: "Kanban",
-      active: ActiveKanbanIcon,
-      inactive: InactiveKanbanIcon,
-    },
-    {
-      id: 5,
-      path: "/dashboard/profile",
-      name: "Profile",
-      active: ActiveProfileIcon,
-      inactive: InactiveProfileIcon,
-    },
-    {
-      id: 6,
       path: "/dashboard/client",
       name: "Client",
       active: ActiveClientIcon,
       inactive: InactiveClientIcon,
     },
     {
-      id: 7,
-      path: "/blog-admin",
+      id: 2,
+      path: "/dashboard/blog-admin",
       name: "Blog",
       active: ActiveBlogIcon,
       inactive: InactiveBlogIcon,
     },
   ];
 
-  const handleLogout = async () => {
-    setLoading(true);
-    try {
-      await logout();
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-    }
+  const handleClick = () => {
+    setIsOpen(true);
   };
 
   return (
     <div className="w-[290px] fixed bg-white min-h-screen z-10">
       <div className="flex justify-center items-center py-14 border-b border-custom-light">
-        <img src={HorizonLogo} />
+        <img src={LogoHorizon} className="h-10" />
       </div>
       <div className="h-full pb-6 flex flex-col justify-between items-center">
         <div className="w-full py-9 space-y-5">
@@ -128,7 +124,7 @@ const Sidebar = () => {
           {/* <--------------------END--------------------> */}
           <button
             className="bg-gradient-to-r from-custom-purple to-violet-500 ml-[10px] px-[1.4375rem] w-[131px] py-2 flex justify-center items-center font-bold text-white text-4 rounded-2xl hover:bg-custom-blue transition duration-200 ease-in-out"
-            onClick={handleLogout}
+            onClick={handleClick}
           >
             {loading ? (
               <img src={Loading} className="h-6 mx-auto animate-spin" />
@@ -141,6 +137,7 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
+      <LogoutConfirm open={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   );
 };

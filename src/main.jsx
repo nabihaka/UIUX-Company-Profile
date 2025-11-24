@@ -43,10 +43,10 @@ const router = createBrowserRouter([
     element: <Blog />,
   },
 
-  {
-    path: "/blog-admin",
-    element: <BlogAdmin />,
-  },
+  // {
+  //   path: "/blog-admin",
+  //   element: <BlogAdmin />,
+  // },
 
   {
     path: "/create-new-blog",
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/blog-detail",
+    path: "/blog-detail/:slug",
     element: <BlogDetailAdmin />,
   },
 
@@ -112,12 +112,13 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
-      { index: true, path: "main", element: <Main /> }, // Home sebagai default di /dashboard
-      { path: "nftmarketplace", element: <NftMarketplace /> },
-      { path: "tables", element: <Tables /> },
-      { path: "kanban", element: <Kanban /> },
-      { path: "profile", element: <Profile /> },
-      { path: "client", element: <Client /> },
+      // { index: true, path: "main", element: <Main /> }, // Home sebagai default di /dashboard
+      // { path: "nftmarketplace", element: <NftMarketplace /> },
+      // { path: "tables", element: <Tables /> },
+      // { path: "kanban", element: <Kanban /> },
+      // { path: "profile", element: <Profile /> },
+      { index: true, path: "client", element: <Client /> },
+      { path: "blog-admin", element: <BlogAdmin /> },
     ],
   },
 ]);

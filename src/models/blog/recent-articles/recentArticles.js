@@ -13,6 +13,7 @@ export const RECENT_ARTICLES_DATA = [
     desc: "Majority of peole will work in jobs that don’t exist today.",
     imgAuthor: LinaHicks,
     name: "lina hicks",
+    date: "25 December 2024",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ export const RECENT_ARTICLES_DATA = [
     desc: "Thanks to never-ending piles of data & the amount of insight",
     imgAuthor: TylerMurray,
     name: "tyler murray",
+    date: "7 January 2025",
   },
   {
     id: 3,
@@ -29,5 +31,6 @@ export const RECENT_ARTICLES_DATA = [
     desc: "A constant ability to learn will be on the most crucial skills",
     imgAuthor: WarrenCasey,
     name: "warren casey",
+    date: "18 December 2024",
   },
 ];

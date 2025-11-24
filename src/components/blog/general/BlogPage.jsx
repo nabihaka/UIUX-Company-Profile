@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect } from "react";
 import Navbar from "./Navbar";
 import Home from "../section/Home";
 import PopularArticles from "../section/PopularArticles";
@@ -8,6 +9,13 @@ import AllArticles from "../section/AllArticles";
 import Footer from "../general/Footer";
 
 const BlogPage = () => {
+  const blogId = localStorage.getItem("blogId");
+  useEffect(() => {
+    if (blogId) {
+      localStorage.removeItem("blogId");
+    }
+  }, []);
+
   return (
     <div className="w-full min-h-screen relative overflow-x-hidden">
       <Navbar />

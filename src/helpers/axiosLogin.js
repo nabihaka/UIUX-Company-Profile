@@ -13,10 +13,12 @@ export const login = async (formData, setLoading) => {
       const tokenRes = response?.data?.token ?? "";
 
       // Save token to local storage
+      const timestamp = new Date().getTime();
       localStorage.setItem("token", tokenRes);
+      localStorage.setItem("tokenTimeStamp", timestamp);
 
       // Jika berhasil, arahkan ke dashboard
-      window.location.href = "/dashboard/main";
+      window.location.href = "/dashboard/client";
     })
     .finally(() => {
       setLoading(false);

@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { NAVBAR_LANDING_LINKS } from "@/models/landing/navbar/navbarLanding";
-import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+// import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+import LogoHorizon from "@/assets/png/horizonui_logo.png";
 
 const Navbar = () => {
   const [activeLink, setActiveLink] = useState(0);
@@ -81,11 +82,7 @@ const Navbar = () => {
       }`}
     >
       <div className="flex justify-between items-center lg:w-[958px] xl:w-[1152px]">
-        <img
-          src={HorizonLogo}
-          className="lg:scale-95 xl:scale-100 lg:-ml-[5px] xl:ml-0"
-          alt="Horizon Logo"
-        />
+        <img src={LogoHorizon} className="h-10" alt="Horizon Logo" />
         <div className="flex space-x-10">
           {NAVBAR_LANDING_LINKS.map((link, index) => (
             <a

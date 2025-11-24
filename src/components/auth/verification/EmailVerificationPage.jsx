@@ -2,7 +2,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { resendEmail } from "@/helpers/axiosResendEmail.js";
 import DirectboxIcon from "@/assets/svg/directbox_receive.svg";
-import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+import LogoHorizon from "@/assets/png/horizonui_logo.png";
 import Loading from "@/assets/svg/loading.svg";
 
 const EmailVerificationPage = () => {
@@ -129,7 +129,9 @@ const EmailVerificationPage = () => {
               )}
             </button>
           </div>
-          <img src={HorizonLogo} />
+          <div className="transform -translate-y-2">
+            <img src={LogoHorizon} className="h-10" />
+          </div>
         </div>
       </div>
     </div>

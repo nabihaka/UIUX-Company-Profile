@@ -62,7 +62,7 @@ export const FormUpdateBlog = () => {
     }
 
     if (!blogId) {
-      navigate("/blog-admin");
+      navigate("/dashboard/blog-admin");
     }
   }, [location.pathname, blogId]);
 

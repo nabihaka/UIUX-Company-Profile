@@ -83,10 +83,8 @@ const ContactSection = () => {
 
   return (
     <section id="contact" className="pt-[120px]">
-      {/* xl:mr-[54px] xl:ml-0 xl2:mr-[94px] xl2:ml-0 xl3:mr-[134px] xl3:ml-0
-      2xl:mr-[182px] 2xl:ml-0 */}
       <div className="flex justify-center">
-        <div className="flex justify-between items-center border border-red-500 lg:min-w-[1145.5px] xl:min-w-[1338px] relative lg:-left-[95px] xl:-left-[94px] mb-[7.5rem]">
+        <div className="flex justify-between items-center lg:min-w-[1145.5px] xl:min-w-[1338px] relative lg:-left-[95px] xl:-left-[94px] mb-[7.5rem]">
           <img
             src={ContactImg}
             className="lg:w-[55%] xl:w-[95%] lg:h-[635px] xl:h-[680px] object-cover rounded-r-3xl"
@@ -158,7 +156,7 @@ const ContactSection = () => {
                     className="bg-transparent placeholder-custom-gray font-normal lg:text-sm xl:text-base border border-custom-A7ABB6 px-4 py-3 rounded-xl focus:bg-transparent focus:outline-none focus:ring-1 focus:ring-custom-purple"
                   />
                 </div>
-                <div className="w-full border flex flex-col space-y-[0.8125rem]">
+                <div className="w-full flex flex-col space-y-[0.8125rem]">
                   <div className="flex items-center space-x-2">
                     <input
                       id="appoinment"

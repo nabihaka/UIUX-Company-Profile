@@ -6,7 +6,7 @@ const TestimoniSection = () => {
   return (
     <section id="testimoni" className="pt-[120px]">
       <div className="flex justify-center">
-        <div className="border lg:max-w-[794px] xl:max-w-[907px] flex flex-col items-center">
+        <div className="lg:max-w-[794px] xl:max-w-[907px] flex flex-col items-center">
           <div className="flex flex-col items-center mb-10">
             <span className="font-normal lg:text-sm xl:text-base text-custom-A7ABB6 mb-4">
               What our customer say
@@ -15,7 +15,7 @@ const TestimoniSection = () => {
               testimonial
             </h2>
             <p className="font-normal text-center lg:text-sm xl:text-base text-custom-A7ABB6">
-              Lörem ipsum astrobel sar direlig. Kronde est konfoni med kelig.
+              Here is one of our testimonials
             </p>
           </div>
           <div className="w-full flex flex-col items-center mb-11">
@@ -29,7 +29,7 @@ const TestimoniSection = () => {
           </div>
           <div className="w-full mb-10">
             <p className="font-light text-center lg:text-[28px] xl:text-[2rem] text-black">
-              Horizon Free make a great web product and help our business to be
+              HorizonUI make a great web product and help our business to be
               more efficient and increase profit.
             </p>
           </div>

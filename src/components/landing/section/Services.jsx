@@ -30,8 +30,8 @@ const ServicesSection = () => {
                       website design
                     </h3>
                     <p className="font-normal lg:text-sm xl:text-base text-justify text-custom-D1D4DC">
-                      Lörem ipsum astrobel sar direlig. Kronde est konfoni med
-                      kelig. Terabel pov astrobel sar
+                      We can design the look of the website according to your
+                      needs
                     </p>
                   </div>
                   <button
@@ -49,11 +49,11 @@ const ServicesSection = () => {
                 <div className="w-full pl-5 lg:pr-[70px] xl:pr-[120px] pb-5 absolute bottom-0">
                   <div className="flex flex-col items-start space-y-3">
                     <h3 className="capitalize font-bold lg:text-[27px] xl:text-[2rem] text-white">
-                      website design
+                      landing page design
                     </h3>
                     <span className="font-normal lg:text-sm xl:text-base text-justify text-custom-D1D4DC">
-                      Lörem ipsum astrobel sar direlig. Kronde est konfoni med
-                      kelig. Terabel pov astrobel sar
+                      Landing Page is used to display business information in
+                      one page
                     </span>
                   </div>
                 </div>
@@ -63,15 +63,15 @@ const ServicesSection = () => {
                 <div className="w-full pl-5 lg:pr-[70px] xl:pr-[120px] pb-5 absolute bottom-0">
                   <div className="flex flex-col items-start space-y-3">
                     <h3 className="font-bold lg:text-[27px] xl:text-[2rem] text-white">
-                      Websit
+                      Mobile
                       <span className="text-black">
-                        <span className="lg:text-white xl:text-black">e</span>{" "}
+                        <span className="lg:text-white xl:text-black"></span>{" "}
                         Design
                       </span>
                     </h3>
                     <span className="font-normal lg:text-sm xl:text-base text-justify text-custom-D1D4DC">
-                      Lörem ipsum astrobel sar direlig. Kronde est konfoni med
-                      kelig. Terabel pov astrobel sar
+                      We can create a mobile application design that can be
+                      tailored to your business needs
                     </span>
                   </div>
                 </div>

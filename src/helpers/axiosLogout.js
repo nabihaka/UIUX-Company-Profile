@@ -1,7 +1,8 @@
 import axiosHelper from "./axiosInterceptor";
 // import { useNavigate } from "react-router-dom";
 
-export const logout = async () => {
+export const logout = async (setLoading) => {
+  setLoading(true);
   const token = localStorage.getItem("token");
   // const navigate = useNavigate();
 
@@ -18,7 +19,9 @@ export const logout = async () => {
       },
     })
     .then(() => {
-      localStorage.removeItem("token");
+      // localStorage.removeItem("token");
+      localStorage.clear();
+      setLoading(false);
       // navigate("/login-admin");
       window.location.href = "/login-admin";
     })
@@ -28,5 +31,6 @@ export const logout = async () => {
         localStorage.removeItem("token");
         window.location.href = "/login-admin";
       }
+      setLoading(false);
     });
 };

@@ -5,3 +5,60 @@
 html {
   scroll-behavior: smooth;
 }
+
+.image {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+figure.image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.image-style-align-right {
+  float: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.image-style-align-right img {
+  margin-left: 2rem;
+}
+
+.image-style-align-left {
+  float: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.image-style-align-left img {
+  margin-right: 2rem;
+}
+
+.image-style-block-align-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+.image-style-block-align-right img {
+  display: block; /* Membuat gambar berada pada baris terpisah */
+  margin: 0 0 1rem auto; /* Memberikan spasi di bawah gambar */
+}
+
+.image-style-block-align-left {
+  display: block; /* Mengubah gambar menjadi elemen blok */
+  margin-left: 0; /* Posisi gambar tetap di kanan */
+  margin-right: auto; /* Pastikan margin kanan nol */
+  text-align: left; /* Opsional: untuk memastikan konten lain sejajar */
+}
+
+.image-style-block-align-left img {
+  display: block; /* Membuat gambar berada pada baris terpisah */
+  margin: 0 auto 1rem 0; /* Memberikan spasi di bawah gambar */
+}

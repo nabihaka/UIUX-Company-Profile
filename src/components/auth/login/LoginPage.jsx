@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "@/assets/svg/loading.svg";
 import HeaderForm from "@/components/auth/HeaderForm.jsx";
@@ -28,33 +27,41 @@ const LoginPage = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const tokenFromUrl = urlParams.get("token");
     const token = localStorage.getItem("token");
+    const tokenTimeStamp = localStorage.getItem("tokenTimeStamp");
+
+    // const isTokenExpired = () => {
+    //   const currentTime = new Date().getTime();
+    //   const tokenAge = currentTime - Number(tokenTimeStamp);
+    //   return tokenAge > 3600000;
+    // };
 
     if (tokenFromUrl) {
       localStorage.setItem("token", tokenFromUrl);
+      localStorage.setItem("tokenTimeStamp", new Date().getTime());
       toast.success("Please check your email inbox and change your password.", {
         autoClose: 7000,
       });
       if (token) {
         setTimeout(() => {
-          navigate("/dashboard/main");
+          navigate("/dashboard/client");
         }, 7000);
       }
       return;
     }
 
+    // if (token && isTokenExpired()) {
+    //   localStorage.removeItem("token");
+    //   localStorage.removeItem("tokenTimeStamp");
+
+    //   toast.error("Session expired, please login again.", { autoClose: 3000 });
+    //   setTimeout(() => {
+    //     navigate("/login-admin");
+    //   }, 3000);
+    // }
     if (token) {
-      navigate("/dashboard/main");
+      navigate("/dashboard/client");
     }
   }, []);
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-
-  //   if (token) {
-  //     // Jika token ada, arahkan ke dashboard
-  //     navigate("/dashboard/main");
-  //   }
-  // }, []);
 
   const handleSubmit = () => {
     const formData = new FormData();
@@ -66,12 +73,6 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = async () => {
-    // fetch("http://localhost:8000/auth/google", {
-    //   method: "GET",
-    // });
-    // await googleLogin(setLoadingGoogle);
-    // const fetchGoogleLogin = await axios.get("/auth/google");
-
     setLoadingGoogle(true);
 
     setTimeout(() => {
@@ -91,6 +92,7 @@ const LoginPage = () => {
           <GoogleButton
             isLoading={loadingGoogle}
             handleClick={handleGoogleLogin}
+            text="Sign in with Google"
           />
           <div className="w-full flex flex-row justify-center items-center my-[1.8125rem]">
             <span className="text-custom-gray text-base tracking-negative-2">
@@ -118,8 +120,8 @@ const LoginPage = () => {
               }
             />
             {/* <--------------------------KEEP ME LOGGED IN---------------------------> */}
-            <div className="w-full flex justify-between items-center">
-              <KeepLoggedIn />
+            <div className="w-full flex justify-end items-center">
+              {/* <KeepLoggedIn /> */}
               <Link
                 to="/forgot-password"
                 className="font-medium text-base text-custom-purple tracking-negative-2 mb-3.5 hover:text-custom-blue hover:underline cursor-pointer"

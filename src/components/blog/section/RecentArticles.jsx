@@ -39,23 +39,23 @@ const RecentArticles = () => {
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="flex gap-3 items-center">
-                      <img src={data.imgAuthor} className="object-cover" />
+                      {/* <img src={data.imgAuthor} className="object-cover" /> */}
                       <div>
                         <h4 className="capitalize font-medium text-base text-white tracking-negative-2">
                           {data.name}
                         </h4>
                         <div className="flex gap-1 items-center">
-                          <div className="w-4 h-4 bg-custom-36B37E flex justify-center items-center rounded-full">
+                          <div className="w-4 h-4 bg-green-500 flex justify-center items-center rounded-full">
                             <IoIosCheckmark className="text-white text-xl" />
                           </div>
                           <em className="font-light text-sm text-gray-400 tracking-negative-2">
-                            Verified writer
+                            Verified admin
                           </em>
                         </div>
                       </div>
                     </div>
                     <span className="capitalize font-normal text-base text-white">
-                      02 may 2024
+                      {data.date}
                     </span>
                   </div>
                 </div>

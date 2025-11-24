@@ -1,5 +1,6 @@
 import * as React from "react";
 import HorizonLogo from "@/assets/svg/horizon_logo.svg";
+import LogoHorizon from "@/assets/png/horizonui_logo.png";
 import { FaCircleCheck } from "react-icons/fa6";
 
 const SuccessfulVerificationPage = () => {
@@ -25,7 +26,9 @@ const SuccessfulVerificationPage = () => {
           >
             Go to Sign In
           </button>
-          <img src={HorizonLogo} />
+          <div className="transform -translate-y-2">
+            <img src={LogoHorizon} className="h-10" />
+          </div>
         </div>
       </div>
     </div>

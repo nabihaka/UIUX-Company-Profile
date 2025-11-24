@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="w-full px-10 py-[46px] absolute flex justify-between items-center">
               <div className="w-[60%] flex flex-col items-start">
                 <h3 className="font-bold lg:text-[28px] text-[2rem] text-white">
-                  Work Together with Horizon Free
+                  Work Together with HorizonUI
                 </h3>
                 <p className="font-extralight lg:text-sm xl:text-base text-white">
                   Our company is a very professional company, with friendly
@@ -97,7 +97,7 @@ const Footer = () => {
               <div className="flex items-baseline space-x-4">
                 <MdEmail className="lg:scale-[140%] xl:scale-150" />
                 <span className="font-light lg:text-sm xl:text-base text-custom-A7ABB6">
-                  horizon.free@gmail.com
+                  horizon.ui@gmail.com
                 </span>
               </div>
               <div className="flex items-baseline space-x-4">

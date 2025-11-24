@@ -19,7 +19,7 @@ export const updateBlog = async (formData, setLoading) => {
     const successMessage = response?.data?.message;
     toast.success(successMessage, { autoClose: 3000 });
     setTimeout(() => {
-      window.location.href = "/blog-admin";
+      window.location.href = "/dashboard/blog-admin";
     }, 3000);
   } catch (error) {
     const errorMessage = error?.response?.data?.message;

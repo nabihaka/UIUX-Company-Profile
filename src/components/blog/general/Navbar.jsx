@@ -1,6 +1,7 @@
 import * as React from "react";
 import { NAVBAR_LANDING_LINKS } from "@/models/landing/navbar/navbarLanding";
-import HorizonWhiteLogo from "@/assets/svg/horizon_white_logo.svg";
+// import HorizonWhiteLogo from "@/assets/svg/horizon_white_logo.svg";
+import HorizonWhiteLogo from "@/assets/png/horizonui_logo_white.png";
 
 const Navbar = () => {
   return (
